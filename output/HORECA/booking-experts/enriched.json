@@ -1,0 +1,107 @@
+{
+  "company": "Booking Experts",
+  "domain": "https://bookingexperts.com",
+  "enriched_at": "2026-05-05T19:08:26.253513",
+  "freshness": {
+    "fresh": true,
+    "days_old": 0,
+    "note": "Fresh: 0 days ago"
+  },
+  "website": {
+    "company": "Booking Experts",
+    "domain": "https://bookingexperts.com",
+    "scanned_at": "2026-05-05T19:08:26.253522",
+    "website_reachable": true,
+    "title": "The best way to build your recreation business",
+    "description": "Cookies ensure better website use and are used for personalized advertisements. By clicking 'Accept' you agree to the storage of cookies. Click on 'Cookie settings' to set specific permissions. Read more about the use of cookies in our cookie policy.\n\nIf you decline, your information won\u2019t be tracked when you visit this website. A single cookie will be used in your browser to remember your preference not to be tracked.\n\nCookies settings\nAccept\nDecline\nPlatform\nBEX PMS\nPMS\nManage all your back of",
+    "tech_stack": [
+      "Angular",
+      "Go",
+      "Google Analytics",
+      "Mollie",
+      "Hotjar",
+      "HubSpot"
+    ],
+    "page_count": 42,
+    "pricing": {
+      "found": true,
+      "tiers": [],
+      "pricing_url": "https://www.bookingexperts.com/about/pricing"
+    },
+    "careers": {
+      "found": true,
+      "positions": [
+        "Developers\nReal estate development",
+        "Developers\nBuild your solution with our"
+      ],
+      "careers_url": "https://www.bookingexperts.com/about/pricing/careers"
+    },
+    "sources_checked": [
+      "https://bookingexperts.com",
+      "https://bookingexperts.com/about"
+    ],
+    "errors": [],
+    "method": "playwright"
+  },
+  "wikipedia": null,
+  "github": {
+    "name": "Booking Experts",
+    "public_repos": 56,
+    "followers": 20,
+    "description": "",
+    "repos": [
+      {
+        "name": "carrierwave-aws",
+        "stars": 0,
+        "language": null
+      },
+      {
+        "name": "rails_semantic_logger",
+        "stars": 0,
+        "language": null
+      },
+      {
+        "name": "semantic_logger",
+        "stars": 0,
+        "language": null
+      },
+      {
+        "name": "brakeman",
+        "stars": 0,
+        "language": "Ruby"
+      },
+      {
+        "name": "tileup",
+        "stars": 0,
+        "language": "Ruby"
+      }
+    ],
+    "top_languages": [
+      "Ruby"
+    ],
+    "url": "https://github.com/bookingexperts"
+  },
+  "hosting": {
+    "hosting": null,
+    "ip": "199.60.103.53"
+  },
+  "opencorporates": null,
+  "news": null,
+  "crunchbase": null,
+  "triangulation": {
+    "employees": {
+      "consensus": 56,
+      "sources": {
+        "github_repos": 56
+      },
+      "confidence": "low",
+      "note": "Single source: github_repos"
+    }
+  },
+  "sources_found": [
+    "website",
+    "dns",
+    "github"
+  ],
+  "errors": []
+}

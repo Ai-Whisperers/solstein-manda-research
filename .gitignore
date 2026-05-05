@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Large binaries (John's original data archives)
+archive/john-original/HORECA_IT.zip
+archive/john-original/MEAL_SERVICE_IT.zip
+archive/john-original/AGRO_IT.7z
+
+# SQLite database
+output/HORECA/experiments.db
+
+# Environment files
+.env
+.env.local

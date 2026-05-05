@@ -1,0 +1,20 @@
+{
+  "company": "Booking Experts",
+  "timestamp": "2026-05-05 20:00:56.859402",
+  "consensus_scores": {
+    "Ownership attractiveness": 4.0,
+    "Revenue scale fit": 3.5,
+    "Geographic fit": 5.0,
+    "Tech stack modernity": 5.0,
+    "Customer lock-in": 5.0,
+    "Vertical depth": 5.0,
+    "Integration potential": 5.0,
+    "Growth trajectory": 4.0
+  },
+  "agreement_pct": 100.0,
+  "disagreements": [],
+  "should_abort": false,
+  "abort_reason": "",
+  "research_value": 50,
+  "abort_threshold": 30
+}

@@ -1,0 +1,61 @@
+{
+  "ratings": {
+    "playwright+wiki": 1500.0,
+    "stdlib+crunchbase": 1500.0,
+    "crewai_deepseek": 1532.0,
+    "single_agent_gpt": 1468.0
+  },
+  "matches": [
+    {
+      "a": "playwright+wiki",
+      "b": "stdlib+crunchbase",
+      "a_error": 0.04,
+      "b_error": 0.12,
+      "a_won": true
+    },
+    {
+      "a": "crewai_deepseek",
+      "b": "single_agent_gpt",
+      "a_error": 0.02,
+      "b_error": 0.31,
+      "a_won": true
+    },
+    {
+      "a": "playwright+wiki",
+      "b": "crewai_deepseek",
+      "a_error": 0.04,
+      "b_error": 0.02,
+      "a_won": false
+    },
+    {
+      "a": "stdlib+crunchbase",
+      "b": "single_agent_gpt",
+      "a_error": 0.12,
+      "b_error": 0.31,
+      "a_won": true
+    }
+  ],
+  "ranking": [
+    [
+      "crewai_deepseek",
+      1532.0,
+      2
+    ],
+    [
+      "playwright+wiki",
+      1500.0,
+      2
+    ],
+    [
+      "stdlib+crunchbase",
+      1500.0,
+      2
+    ],
+    [
+      "single_agent_gpt",
+      1468.0,
+      2
+    ]
+  ],
+  "updated_at": "2026-05-05 20:00:56.859775"
+}

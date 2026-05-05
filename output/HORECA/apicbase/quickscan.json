@@ -1,0 +1,24 @@
+{
+  "company": "Apicbase",
+  "domain": "https://apicbase.com",
+  "scanned_at": "2026-05-05T18:49:23.937018",
+  "website_reachable": true,
+  "title": "Apicbase | Food and Kitchen Management Software",
+  "description": "Apicbase \u2014 Apicbase | Food and Kitchen Management Software",
+  "tech_stack": [
+    "jQuery",
+    "Bootstrap",
+    "Python/Django",
+    "Cloudflare"
+  ],
+  "page_count": 5,
+  "pricing_url": "https://apicbase.com/pricing",
+  "careers_url": null,
+  "sources_checked": [
+    "https://apicbase.com",
+    "https://apicbase.com/pricing",
+    "https://apicbase.com/integrations"
+  ],
+  "errors": [],
+  "keywords": ""
+}

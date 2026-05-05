@@ -1,0 +1,58 @@
+timestamp	company	experiment_num	ownership	revenue	geo	tech	lockin	vertical	integration	growth	composite	john_composite	error	error_target	kept	confidence	notes
+2026-05-05T18:38	aareon	1	1.0	1.0	1.0	4.0	5.0	1.0	3.0	4.0	1.90	1.90	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	access-hospitality-access-group	1	1.0	1.0	1.0	4.0	5.0	5.0	4.0	4.0	2.30	2.30	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	apfelroute	1	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.00	1.00	0.00	0.50	yes	Low (dimensions inferred from partial data)	
+2026-05-05T18:38	apicbase	1	2.0	3.0	4.0	5.0	4.0	5.0	5.0	3.0	3.47	3.50	0.03	0.50	yes	Medium (revenue is estimated; cap table details are approximate; no recent financial data)	
+2026-05-05T18:38	beambox	1	4.0	1.0	1.0	4.0	3.0	2.0	3.0	2.0	2.00	2.00	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	bepos	1	1.0	2.0	3.0	3.0	3.0	2.0	2.0	2.0	2.10	2.10	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	booking-experts	1	4.0	4.0	5.0	5.0	5.0	5.0	5.0	4.0	4.59	4.59	0.00	0.50	yes	Medium-High (revenue is estimated but employee growth and track record are confirmed by multiple sources)	
+2026-05-05T18:38	brewup	1	1.0	1.0	1.0	1.0	3.0	2.0	1.0	1.0	1.00	1.00	0.00	0.50	yes	Low (dimensions inferred from partial data)	
+2026-05-05T18:38	cubilis	1	1.0	4.0	5.0	3.0	4.0	5.0	4.0	3.0	1.80	1.80	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	deliverect	1	?	?	4.0	?	?	4.0	?	?	3.00	3.00	0.00	0.50	yes		
+2026-05-05T18:38	epos-now	1	3.0	1.0	1.0	5.0	4.0	4.0	4.0	5.0	2.30	2.30	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	eviivo	1	2.0	3.0	1.0	5.0	4.0	4.0	5.0	3.0	2.50	2.50	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	fabella	1	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.00	1.00	0.00	0.50	yes	Low (dimensions inferred from partial data)	
+2026-05-05T18:38	foodcase	1	3.0	2.0	4.0	1.0	2.0	1.0	1.0	2.0	2.00	2.00	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	foodnotify	1	?	?	1.0	4.0	3.0	4.0	4.0	?	2.30	2.30	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	formitable	1	1.0	3.0	5.0	4.0	4.0	4.0	3.0	4.0	3.40	3.40	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	fourth	1	1.0	1.0	1.0	5.0	5.0	4.0	4.0	3.0	2.10	2.10	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	gastrofix-gmbh	1	1.0	2.0	1.0	4.0	4.0	4.0	3.0	3.0	2.10	2.10	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	gastropoint	1	2.0	1.0	1.0	1.0	1.0	2.0	1.0	1.0	1.20	1.20	0.00	0.50	yes	Low (dimensions inferred from partial data)	
+2026-05-05T18:38	guestline	1	1.0	1.0	2.0	4.0	5.0	5.0	4.0	4.0	2.40	2.40	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	guestu	1	1.0	1.0	1.0	4.0	3.0	3.0	3.0	4.0	2.00	2.00	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	hijiffy	1	?	?	2.0	?	?	4.0	?	?	2.94	2.94	0.00	0.50	yes		
+2026-05-05T18:38	horeko	1	3.0	4.0	5.0	5.0	5.0	5.0	4.0	4.0	4.40	4.40	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	hotelpartner	1	3.0	2.0	1.0	3.0	4.0	3.0	3.0	3.0	2.40	2.40	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	kafoodle	1	1.0	2.0	1.0	4.0	4.0	4.0	4.0	3.0	2.20	2.20	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	kassensysteme-tse	1	?	1.0	1.0	1.0	2.0	2.0	1.0	1.0	1.10	1.10	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	kassensysteme.de	1	1.0	1.0	1.0	1.0	1.0	2.0	1.0	1.0	1.20	1.20	0.00	0.50	yes	Low (dimensions inferred from partial data)	
+2026-05-05T18:38	kitchen-cut	1	4.0	4.0	1.0	5.0	5.0	5.0	5.0	3.0	3.20	3.20	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	lighthouse-formerly-ota-insight	1	1.0	1.0	3.0	5.0	5.0	5.0	5.0	5.0	2.60	2.60	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	lightspeed-hospitality	1	1.0	1.0	2.0	5.0	4.0	4.0	3.0	3.0	2.30	2.30	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	mews-systems	1	?	?	5.0	?	?	5.0	?	?	3.06	3.06	0.00	0.50	yes		
+2026-05-05T18:38	myres	1	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.00	1.00	0.00	0.50	yes	Low (dimensions inferred from partial data)	
+2026-05-05T18:38	omnifi	1	1.0	1.0	1.0	4.0	3.0	3.0	5.0	3.0	2.00	2.00	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	orderbird-ag-garmondo	1	1.0	3.0	1.0	5.0	4.0	5.0	4.0	4.0	2.40	2.40	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	orderbird-ex-garmondo--sumup-context	1	1.0	1.0	2.0	5.0	4.0	3.0	4.0	5.0	2.20	2.20	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	orderyoyo	1	1.0	1.0	2.0	4.0	4.0	3.0	3.0	5.0	2.40	2.40	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	paul-industryarena	1	1.0	1.0	1.0	1.0	1.0	2.0	1.0	1.0	1.00	1.00	0.00	0.50	yes	Low (dimensions inferred from partial data)	
+2026-05-05T18:38	resengo	1	1.0	3.0	5.0	3.0	4.0	4.0	3.0	2.0	2.90	2.90	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	reservix-gmbh	1	2.0	3.0	1.0	3.0	4.0	1.0	2.0	3.0	2.00	2.00	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	revel-systems	1	1.0	1.0	1.0	5.0	4.0	4.0	5.0	3.0	2.10	2.10	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	rotageek	1	1.0	2.0	1.0	5.0	4.0	4.0	4.0	3.0	2.20	2.20	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	schnell-ein-tisch	1	?	1.0	1.0	?	1.0	2.0	?	1.0	1.00	1.00	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	sevenrooms	1	1.0	2.0	1.0	5.0	5.0	5.0	5.0	4.0	2.50	2.50	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	siteminder	1	1.0	1.0	2.0	5.0	5.0	5.0	5.0	4.0	2.50	2.50	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	slerp	1	2.0	3.0	1.0	5.0	3.0	3.0	4.0	4.0	2.50	2.50	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	sonnen-pc	1	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.00	1.00	0.00	0.50	yes	Low (dimensions inferred from partial data)	
+2026-05-05T18:38	systor	1	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.0	1.00	1.00	0.00	0.50	yes	Low (dimensions inferred from partial data)	
+2026-05-05T18:38	tablebooker	1	1.0	3.0	5.0	4.0	4.0	5.0	2.0	3.0	3.40	3.40	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	tablefever	1	5.0	3.0	5.0	3.0	4.0	4.0	2.0	4.0	4.30	4.30	0.00	0.50	yes	Medium-High (financials confirmed via filed accounts; product details and tech stack are estimated)	
+2026-05-05T18:38	tenzo	1	2.0	3.0	1.0	5.0	3.0	3.0	5.0	4.0	2.50	2.50	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	tipjar	1	2.0	3.0	1.0	5.0	4.0	3.0	4.0	5.0	2.50	2.50	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	triometric	1	3.0	2.0	1.0	3.0	4.0	1.0	3.0	3.0	2.10	2.10	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	untill	1	3.0	3.0	5.0	3.0	4.0	5.0	5.0	4.0	3.94	3.90	0.04	0.50	yes	Medium-Low (revenue is unverified; financials opaque; tech stack details are estimated; reseller economics unknown)	
+2026-05-05T18:38	valk-solutions	1	1.0	2.0	3.0	5.0	4.0	1.0	4.0	4.0	2.10	2.10	0.00	0.50	yes	Auto-generated from John's dimension scores	
+2026-05-05T18:38	wavem	1	3.0	1.0	3.0	2.0	2.0	2.0	2.0	2.0	2.00	2.00	0.00	0.50	yes	Low (dimensions inferred from partial data)	
+2026-05-05T18:38	zenchef	1	?	?	4.0	?	?	4.0	?	?	3.18	3.20	0.02	0.50	yes		
+2026-05-05T18:38	zonal	1	1.0	1.0	1.0	3.0	5.0	5.0	3.0	2.0	2.10	2.10	0.00	0.50	yes	Auto-generated from John's dimension scores	

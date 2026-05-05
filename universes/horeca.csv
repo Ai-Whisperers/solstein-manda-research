@@ -1,0 +1,74 @@
+name,category,country,description
+Lightspeed Hospitality,POS/Restaurant,NL,Cloud POS and payments for restaurants (HQ in Montreal but major NL office)
+OrderYoyo,Online Ordering,NL,Direct online ordering system for restaurants (no middleman commission)
+Resengo,Reservations,NL,Online reservation and table management — acquired by Zenchef Sep 2023 (PSG Equity); off-market
+MaaS (Meals as a Service),Online Ordering,NL,B2B food ordering and delivery platform
+Horecavita,Restaurant POS,NL,POS and management software for hospitality
+Misterbook,Hotel PMS,NL,Hotel property management system
+GuestU,Guest Engagement,NL,Guest experience platform for hotels
+Kashower,POS/Horeca,NL,POS system for hospitality and retail
+Foodcase,Inventory,NL,Inventory and purchasing software for hospitality
+Planax,Workforce,NL,Employee scheduling software for hospitality
+Cures Werkt,Workforce,NL,HR and payroll for hospitality
+Juniper,Hotel PMS,NL,Hotel property management system
+Horeca Solutions,Restaurant POS,NL,POS and management for horeca
+Qompanion,Restaurant POS,NL,Cloud-based hospitality POS
+Untill,POS/Restaurant,NL,Cloud POS system built specifically for Dutch hospitality market
+Booking Experts,Vacation Rental/PMS,NL,Holiday park and vacation rental management software (NL market leader)
+Horeko,Kitchen/F&B,NL,Acquired by Exact (Jul 2022) — off-market; kitchen management recipe and allergen compliance software for restaurants
+Valk Solutions,Retail Omnichannel,NL,ASPOS retail platform (NOT hotel PMS; NOT Van der Valk Hotels related; PE-owned since 2023 — remove from HORECA pipeline)
+Mews Systems,Hotel PMS,NL,Cloud-native hotel PMS founded in Netherlands now operating globally
+Formitable,Reservations,NL,Restaurant reservation platform — merged with Zenchef Jan 2023 (PSG Equity); brand sunset Jan 2024; off-market
+Apicbase,Kitchen/F&B,BE,Food cost and kitchen management for multi-unit restaurants
+Abcouse,Restaurant Software,BE,POS and restaurant management system for Belgium market
+GastroHero,Restaurant POS,BE,IDENTITY COLLISION — gastrohero.be is German PE-backed kitchen equipment (AURELIUS Group); no Belgian POS company confirmed
+iPunt,Restaurant POS,BE,LIKELY DEFUNCT — ipunt.be domain parked at Vimexx; no KBO match found
+Bionext,Horeca Software,BE,IDENTITY COLLISION — bionext.be is a Luxembourg medical laboratory; no Belgian HORECA software entity found
+OrderGrid,B2B Ordering,BE,"IDENTITY COLLISION — ""OrderGrid"" is a Canadian AI company; no Belgian entity confirmed; see OrderBilly as real BE equivalent"
+Wavem,Restaurant Software,BE,Restaurant management and reservation platform
+Deliverect,Online Ordering,BE,Restaurant order management aggregator connecting delivery platforms to POS (unicorn)
+Tablebooker,Reservations,BE,Restaurant reservation platform — acquired by Zenchef Feb 2024 (PSG Equity); off-market
+Cubilis (Stardekk NV),Hotel PMS/Channel,BE,Hotel channel manager and PMS — acquired by Lighthouse (OTA Insight) Feb 2024; off-market
+Zenchef,Restaurant Management,FR,PE-backed EU consolidator (PSG Equity); absorbed Formitable+Resengo+Tablebooker; ~€25-43M ARR; not acquirable
+HiJiffy,Guest Engagement,BE,AI-powered guest communications and messaging platform for hotels
+BePOS (Becosoft SRL),Restaurant POS,BE,HORECA POS brand within Becosoft SRL — acquired by Arcadea Group (Canada) Oct 2023; PE-overhang blocker
+TableFever,Reservations,BE,Independent restaurant reservation platform — last known independent BE reservation SaaS after Tablebooker/Resengo absorbed by Zenchef (research lead)
+OrderBilly,B2B Ordering,BE,Belgian B2B foodservice ordering platform — acquired Smartendr 2025; real BE equivalent of invalid OrderGrid entry (research lead)
+orderbird,Restaurant POS,DE,"Cloud POS for DACH gastronomy — acquired by Nexi Group May 2022 for ~€130M; ""Garmondo"" entity unconfirmed; off-market"
+Gastrofix,POS/Restaurant,DE,Cloud POS — acquired by Lightspeed Jan 2020 for $61M–$125M; now Lightspeed Restaurant G-Series; off-market
+kassensysteme.de,POS System,DE,POS and cash register systems for gastronomy
+Sonnen PC,POS System,DE,POS for hotels and gastronomy
+Reservix,Ticketing/Events,DE,Event ticketing and table reservation for restaurants
+Siveco,Hotel PMS,DE,Hotel property management software (DACH market leader)
+HotelPARTNER,Revenue Management,CH,Revenue management service for hotels — Swiss HQ (not Munich); ~500 DACH+UK hotels
+Aareon,PropTech (NOT HORECA),DE,CLASSIFICATION ERROR — Aareon is a major real estate PropTech company (PE-backed by Advent); not a gastronomy software company
+Orderbird,POS System,DE,Tablet-based POS for restaurants — acquired by Nexi Group (not SumUp) May 2022 for ~€130M; off-market
+Systor,Hospitality IT,DE,IT solutions for hotels and gastronomy
+Fabella,Restaurant Software,DE,Digital menu and ordering platform
+GASTROpoint,POS System,DE,POS for gastronomy and events
+myRES,Reservations,DE,Online table reservation system
+Apfelroute,Restaurant Software,DE,Restaurant management and delivery
+Schnell ein Tisch,Reservations,DE,Last-minute restaurant booking platform
+PAUL (IndustryArena),Restaurant,DE,Restaurant ordering and payment at the table
+Gastroglück,Restaurant Software,DE,Digital guest management for gastronomy
+FoodNotify,F&B Procurement,AT,"F&B procurement platform (NOT guest feedback; NOT Hamburg) — Austrian company, Vienna HQ"
+BrewUp,Brewery Software,DE,ERP for breweries and beverage logistics
+Kassensysteme TSE,POS System,DE,TSE-certified cash registers for hospitality
+Epos Now,POS/Restaurant,UK,Cloud EPOS for hospitality and retail (growing PE-backed)
+Zonal,Restaurant POS,UK,Leading UK hospitality platform — acquired by Volaris/Constellation Feb 2026; off-market
+Access Hospitality (Access Group),PMS/Restaurant,UK,Hospitality management suite — PE-backed (Hg + TA Associates); acquired Guestline 2023 + Omnifi 2021
+Fourth,Workforce/F&B,UK,Workforce and inventory management for hospitality (PE-backed)
+Tenzo,Analytics,UK,AI-powered operations analytics for restaurants
+Kafoodle,Menu/Allergens,UK,Digital menu and allergen management — acquired by 365 Retail Markets Apr 2023; off-market
+Omnifi,Guest WiFi,UK,Guest WiFi and marketing — acquired by Access Group 2021; off-market
+Revel Systems,POS System,US,iPad POS (US HQ) — acquired by Shift4 Payments Mar 2024; off-market
+Slerp,Online Ordering,UK,Dark kitchen and multi-brand ordering platform
+Beambox,Guest WiFi,UK,Guest WiFi and marketing automation for hospitality
+KitchenCut,Kitchen,UK,Kitchen display system and order management
+Guestline,Hotel PMS,UK,Cloud hotel PMS — acquired by Access Group Jul 2023; off-market
+eviivo,Hotel PMS,UK,Boutique hotel and B&B management — PE-backed (Investcorp); not acquirable
+RotaGeek (4home),Workforce,UK,Staff scheduling for hospitality — acquired by ELMO Group Jun 2025; off-market
+TiPJAR,Gratuities/Digital Tips,UK,Digital tipping platform for hospitality
+Lighthouse (v3 - ex OTA Insight),Revenue/Data,UK,Hotel revenue intelligence platform
+SiteMinder,Hotel PMS/Distribution,UK,"Hotel distribution and channel manager (AU HQ, UK office)"
+SevenRooms,Reservations/CRM,US,Guest engagement platform (US HQ) — acquired by DoorDash May 2025 for $1.2B; off-market

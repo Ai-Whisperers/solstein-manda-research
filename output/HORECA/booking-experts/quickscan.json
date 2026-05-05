@@ -1,0 +1,36 @@
+{
+  "company": "Booking Experts",
+  "domain": "https://bookingexperts.com",
+  "scanned_at": "2026-05-05T19:06:19.145372",
+  "website_reachable": true,
+  "title": "The best way to build your recreation business",
+  "description": "Cookies ensure better website use and are used for personalized advertisements. By clicking 'Accept' you agree to the storage of cookies. Click on 'Cookie settings' to set specific permissions. Read more about the use of cookies in our cookie policy.\n\nIf you decline, your information won\u2019t be tracked when you visit this website. A single cookie will be used in your browser to remember your preference not to be tracked.\n\nCookies settings\nAccept\nDecline\nPlatform\nBEX PMS\nPMS\nManage all your back of",
+  "tech_stack": [
+    "Angular",
+    "Go",
+    "Google Analytics",
+    "Mollie",
+    "Hotjar",
+    "HubSpot"
+  ],
+  "page_count": 42,
+  "pricing": {
+    "found": true,
+    "tiers": [],
+    "pricing_url": "https://www.bookingexperts.com/about/pricing"
+  },
+  "careers": {
+    "found": true,
+    "positions": [
+      "Developers\nBuild your solution with our",
+      "Developers\nReal estate development"
+    ],
+    "careers_url": "https://www.bookingexperts.com/about/pricing/careers"
+  },
+  "sources_checked": [
+    "https://bookingexperts.com",
+    "https://bookingexperts.com/about"
+  ],
+  "errors": [],
+  "method": "playwright"
+}
