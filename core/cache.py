@@ -50,8 +50,10 @@ def cache_set(source, key, data, ttl=None):
         'data': data,
     }
     try:
-        with open(cache_path, 'w') as f:
+        tmp = cache_path + '.tmp'
+        with open(tmp, 'w') as f:
             json.dump(entry, f, indent=2)
+        os.replace(tmp, cache_path)
         logger.debug("Cache SET: %s/%s", source, key)
     except OSError as e:
         logger.warning("Cache write failed: %s/%s — %s", source, key, e)

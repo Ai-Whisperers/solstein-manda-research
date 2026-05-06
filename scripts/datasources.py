@@ -1,5 +1,3 @@
-import logging
-logger = logging.getLogger(__name__)
 from core.utils import safe_json_loads
 #!/usr/bin/env python3
 """
@@ -21,6 +19,8 @@ Patterns from: companyscope-mcp, m-and-a-target-intelligence-mcp, langchain comp
 """
 
 import json, os, sys, urllib.request, urllib.error, re, threading, time
+import logging
+logger = logging.getLogger(__name__)
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -516,8 +516,8 @@ if __name__ == '__main__':
     fdir = os.path.join(out_dir, folder)
     os.makedirs(fdir, exist_ok=True)
     path = os.path.join(fdir, 'enriched.json')
-    with open(path, 'w') as f:
-        json.dump(data, f, indent=2)
+    from core.utils import atomic_json_dump
+    atomic_json_dump(data, path, indent=2)
 
     print(format_enrichment_report(data))
     print(f"\nSaved: {path}")

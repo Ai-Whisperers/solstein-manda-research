@@ -310,7 +310,7 @@ if __name__ == '__main__':
 
     # Save JSON
     import os
+    from core.utils import atomic_json_dump
     out = os.path.join(os.path.dirname(__file__), '..', 'output', 'HORECA', 'browser-test.json')
-    with open(out, 'w') as f:
-        json.dump(data, f, indent=2)
+    atomic_json_dump(data, out, indent=2)
     print(f"Saved to {out}")

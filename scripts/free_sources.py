@@ -1,5 +1,3 @@
-import logging
-logger = logging.getLogger(__name__)
 #!/usr/bin/env python3
 """
 Free data source integrations for company enrichment.
@@ -16,6 +14,8 @@ Pattern: public-apis (300K★), openpublicapis.com, explainmcp.com
 """
 
 import json, os, sys, urllib.request, urllib.error, re, time
+import logging
+logger = logging.getLogger(__name__)
 from datetime import datetime, timedelta
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

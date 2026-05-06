@@ -55,8 +55,12 @@ def get_llm(provider='openai', temperature=0.1):
     """
     from crewai import LLM
 
-    LITELLM_BASE = 'http://72.61.44.159:4000/v1'
-    LITELLM_KEY = 'sk-hermes-litellm-sunstein-2026'
+    from core.utils import Config
+    LITELLM_BASE = Config.get('LITELLM_URL') or 'http://72.61.44.159:4000/v1'
+    LITELLM_KEY = Config.litellm_key()
+
+    if not LITELLM_KEY:
+        raise ValueError("LITELLM_KEY not set. Add to .env or export it.")
 
     def _litellm(model):
         return LLM(

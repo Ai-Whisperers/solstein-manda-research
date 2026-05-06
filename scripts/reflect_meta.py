@@ -227,9 +227,9 @@ def run_meta_analysis(apply=False):
     if apply and suggestions:
         print(f"\n  Would apply {len(suggestions)} improvements (--apply mode)")
         print(f"  Suggestion stored in: {os.path.join(BASE, 'output', 'HORECA', 'meta_improvements.json')}")
+        from core.utils import atomic_json_dump
         out = os.path.join(HORECA_DIR, 'meta_improvements.json')
-        with open(out, 'w') as f:
-            json.dump({'suggestions': suggestions, 'reflections': reflections[:10], 'generated_at': str(datetime.now())}, f, indent=2)
+        atomic_json_dump({'suggestions': suggestions, 'reflections': reflections[:10], 'generated_at': str(datetime.now())}, out, indent=2)
 
     return suggestions, reflections
 

@@ -175,8 +175,8 @@ if __name__ == '__main__':
     fdir = os.path.join(out_dir, folder)
     os.makedirs(fdir, exist_ok=True)
     path = os.path.join(fdir, 'quickscan.json')
-    with open(path, 'w') as f:
-        json.dump(scan, f, indent=2)
+    from core.utils import atomic_json_dump
+    atomic_json_dump(scan, path, indent=2)
 
     print(format_scan_report(scan))
     print(f"\nSaved: {path}")

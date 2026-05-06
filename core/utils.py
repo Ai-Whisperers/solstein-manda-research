@@ -125,11 +125,11 @@ class Config:
                 return r.stdout.strip()
         except Exception:
             pass
-        return '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'
+        return None
     
     @staticmethod
     def litellm_key():
-        return 'sk-hermes-litellm-sunstein-2026'
+        return os.environ.get('LITELLM_KEY')
     
     @staticmethod
     def litellm_url():
@@ -145,6 +145,21 @@ class Config:
 
 
 # --- Helpers ---
+
+def atomic_json_dump(data, path, **kwargs):
+    """Write JSON atomically: write to .tmp then os.replace.
+    Prevents corrupted files on crash mid-write."""
+    tmp = path + '.tmp'
+    try:
+        with open(tmp, 'w') as f:
+            json.dump(data, f, **kwargs)
+        os.replace(tmp, path)
+    except (OSError, TypeError) as e:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+        raise
+
+
 def folder_from(name):
     """Convert company name to folder name."""
     f = name.lower().replace(' ', '-').replace('/', '-').replace('(', '').replace(')', '')

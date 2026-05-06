@@ -14,3 +14,6 @@ output/HORECA/experiments.db
 # Environment files
 .env
 .env.local
+
+# API response cache (regenerated on demand)
+output/.cache/
