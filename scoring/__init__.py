@@ -26,6 +26,20 @@ def compute_composite(dimensions):
     return score / total if total > 0 else 0
 
 
+def validate_dimensions(dimensions):
+    """Check that all DIMS are present and within valid range 1-5."""
+    errors = []
+    for d in DIMS:
+        v = dimensions.get(d)
+        if v is None:
+            errors.append({'dimension': d, 'error': 'missing'})
+        elif not isinstance(v, (int, float)):
+            errors.append({'dimension': d, 'error': f'invalid type: {type(v).__name__}'})
+        elif v < 1 or v > 5:
+            errors.append({'dimension': d, 'error': f'out of range: {v}'})
+    return errors
+
+
 # --- Grades (A-F + ARS 0-100) ---
 
 GRADE_TABLE = [
