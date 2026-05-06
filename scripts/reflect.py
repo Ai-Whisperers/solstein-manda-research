@@ -174,7 +174,7 @@ class ReflectionLoop:
                             finding['evidence'] = f"GitHub: {gh['description'][:100]}"
                             finding['method'] = 'github'
             except Exception:
-                pass
+                logger.debug("Follow-up research failed for %s on %s", company_name, q.get('dimension', 'unknown'))
             findings.append(finding)
         return findings
 

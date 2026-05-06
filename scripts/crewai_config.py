@@ -26,8 +26,8 @@ def get_github_token():
         result = subprocess.run(['gh', 'auth', 'token'], capture_output=True, text=True, timeout=5)
         if result.returncode == 0 and result.stdout.strip():
             return result.stdout.strip()
-    except Exception:
-            pass
+    except Exception as e:
+            logger.debug("gh auth token failed: %s", e)
     return None
 
 

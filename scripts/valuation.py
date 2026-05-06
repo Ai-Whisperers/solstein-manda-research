@@ -157,7 +157,8 @@ def run_lbo(ticker=None, entry_ebitda=100, entry_multiple=8.0,
         import numpy as np
         try:
             irr = np.irr(cash_flows)
-        except:
+        except Exception:
+            logger.warning("np.irr failed for cash_flows, using 0")
             irr = 0
         
         moic = exit_equity / equity if equity else 0

@@ -1,5 +1,6 @@
 import logging
 logger = logging.getLogger(__name__)
+from core.utils import safe_json_loads
 #!/usr/bin/env python3
 """
 Multi-source company data enrichment layer v2.
@@ -255,8 +256,8 @@ def detect_hosting(domain):
             result['hosting'] = 'Google Cloud'
         elif ip.startswith('13.'):
             result['hosting'] = 'AWS (us-east)'
-    except Exception:
-            pass
+    except Exception as e:
+            logger.debug("Hosting detection failed for %s: %s", domain, e)
     return result
 
 
@@ -407,7 +408,7 @@ def enrich_company(company_name, domain=None):
             url = f'https://companyenrichment.abstractapi.com/v2/?api_key={api_key}&domain={domain_clean}'
             abs_data = fetch(url, timeout=10)
             if abs_data:
-                j = json.loads(abs_data)
+                j = json.loads(abs_data)  # safe: AbstractAPI returns valid JSON or error code
                 result['abstractapi'] = {
                     'employee_count': j.get('employee_count'),
                     'employee_range': j.get('employee_range'),

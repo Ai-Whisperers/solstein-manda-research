@@ -199,8 +199,8 @@ def enrich_new_sources(company_name, domain=None, country=None, ticker=None):
             if sirene:
                 result['sirene'] = sirene
                 result['sources_found'].append('sirene')
-        except Exception:
-            pass
+        except Exception as e:
+            logger.debug("SIRENE lookup failed for %s: %s", company_name, e)
 
     # UK Companies House (free key)
     uk_key = os.environ.get('UK_COMPANIES_HOUSE_KEY')
@@ -211,8 +211,8 @@ def enrich_new_sources(company_name, domain=None, country=None, ticker=None):
             if ch:
                 result['companies_house'] = ch
                 result['sources_found'].append('companies_house')
-        except Exception:
-            pass
+        except Exception as e:
+            logger.debug("Companies House lookup failed for %s: %s", company_name, e)
 
     # Financial Datasets (free key)
     if ticker:
@@ -223,8 +223,8 @@ def enrich_new_sources(company_name, domain=None, country=None, ticker=None):
                 if profile:
                     result['financial_datasets'] = profile
                     result['sources_found'].append('financial_datasets')
-            except Exception:
-                pass
+            except Exception as e:
+                logger.debug("Financial Datasets profile failed for %s: %s", ticker, e)
 
     return result
 
