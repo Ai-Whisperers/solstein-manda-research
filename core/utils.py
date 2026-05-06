@@ -9,6 +9,18 @@ Consolidates: URL fetch, caching, logging, path resolution, base config.
 import json, os, sys, urllib.request, urllib.error, threading, time
 from datetime import datetime, timedelta
 
+# Auto-load .env file if present (must be before any env reads)
+_env_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '.env')
+if os.path.exists(_env_path):
+    with open(_env_path) as _f:
+        for _line in _f:
+            _line = _line.strip()
+            if _line and not _line.startswith('#') and '=' in _line:
+                _k, _v = _line.split('=', 1)
+                _k, _v = _k.strip(), _v.strip().strip("'\"")
+                if _k and not os.environ.get(_k):
+                    os.environ[_k] = _v
+
 # --- Paths ---
 BASE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 HORECA_DIR = os.path.join(BASE, 'output', 'HORECA')
