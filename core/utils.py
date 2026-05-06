@@ -136,8 +136,10 @@ class Config:
 def folder_from(name):
     """Convert company name to folder name."""
     f = name.lower().replace(' ', '-').replace('/', '-').replace('(', '').replace(')', '')
-    f = f.replace("'", '').replace('&', 'and').replace('--', '-').strip('-')
-    return f
+    f = f.replace("'", '').replace('&', 'and')
+    while '--' in f:
+        f = f.replace('--', '-')
+    return f.strip('-')
 
 
 def safe_json_loads(text, default=None):
