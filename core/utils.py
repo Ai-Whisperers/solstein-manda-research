@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 #!/usr/bin/env python3
 """
 Core utilities shared across the pipeline.
@@ -138,13 +140,31 @@ def folder_from(name):
     return f
 
 
+def safe_json_loads(text, default=None):
+    """Parse JSON safely, return default on failure."""
+    if text is None:
+        return default
+    try:
+        return json.loads(text)
+    except (json.JSONDecodeError, ValueError, TypeError):
+        return default
+
+
+def safe_json_load(filepath, default=None):
+    """Read and parse JSON file safely, return default on failure."""
+    try:
+        with open(filepath) as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError, PermissionError, OSError):
+        return default
+
+
 def load_john_reference():
     """Load John's reference scores."""
     import json
     if not os.path.exists(JOHN_JSON):
         return {}
-    with open(JOHN_JSON) as f:
-        data = json.load(f)
+    data = safe_json_load(JOHN_JSON, {})
     result = {}
     folder_map = {}
     for c in data['companies']:
