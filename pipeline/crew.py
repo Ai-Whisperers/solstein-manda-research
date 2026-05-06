@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 ResearchCoordinator — CrewAI-based multi-agent research crew for M&A target scoring.
 Integrates patterns from due-diligence-agents v1.5.0 (9 domains) and DealScout (combative debate).

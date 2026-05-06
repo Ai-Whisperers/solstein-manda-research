@@ -1,6 +1,5 @@
 import logging
 logger = logging.getLogger(__name__)
-#!/usr/bin/env python3
 """
 MCP server integrations for company data enrichment.
 Each source is a standalone function that returns structured data or None.

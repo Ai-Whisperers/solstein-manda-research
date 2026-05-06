@@ -1,31 +1,18 @@
-import logging
-logger = logging.getLogger(__name__)
-#!/usr/bin/env python3
 """
 Core utilities shared across the pipeline.
-Consolidates: URL fetch, caching, logging, path resolution, base config.
+Consolidates: URL fetch, parallel fetch, atomic writes, JSON safety, folder names.
 """
-
-import json, os, sys, urllib.request, urllib.error, threading, time
+import json, os, sys, urllib.request, urllib.error, threading, time, logging
 from datetime import datetime, timedelta
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# Auto-load .env file if present (must be before any env reads)
-_env_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '.env')
-if os.path.exists(_env_path):
-    with open(_env_path) as _f:
-        for _line in _f:
-            _line = _line.strip()
-            if _line and not _line.startswith('#') and '=' in _line:
-                _k, _v = _line.split('=', 1)
-                _k, _v = _k.strip(), _v.strip().strip("'\"")
-                if _k and not os.environ.get(_k):
-                    os.environ[_k] = _v
+logger = logging.getLogger(__name__)
+from core.config import Config
 
-# --- Paths ---
-BASE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-HORECA_DIR = os.path.join(BASE, 'output', 'HORECA')
-TEMPLATES_DIR = os.path.join(BASE, 'templates')
-JOHN_JSON = os.path.join(BASE, 'archive', 'john-original', 'horeca_json', 'horeca_data.json')
+# --- Paths (centralized in Config) ---
+BASE = Config.BASE
+HORECA_DIR = Config.HORECA_DIR
+JOHN_JSON = Config.JOHN_JSON
 
 # --- Caching ---
 _CACHE = {}
@@ -105,43 +92,7 @@ def fetch_parallel(items, max_workers=5):
     return results
 
 
-# --- API Keys (centralized, from env) ---
-class Config:
-    """Centralized configuration. Reads from environment variables."""
-    
-    @staticmethod
-    def get(key, default=None):
-        return os.environ.get(key, default)
-    
-    @staticmethod
-    def github_token():
-        t = os.environ.get('GITHUB_TOKEN') or os.environ.get('GH_TOKEN')
-        if t:
-            return t
-        try:
-            import subprocess
-            r = subprocess.run(['gh', 'auth', 'token'], capture_output=True, text=True, timeout=5)
-            if r.returncode == 0 and r.stdout.strip():
-                return r.stdout.strip()
-        except Exception:
-            pass
-        return None
-    
-    @staticmethod
-    def litellm_key():
-        return os.environ.get('LITELLM_KEY')
-    
-    @staticmethod
-    def litellm_url():
-        return 'http://72.61.44.159:4000/v1'
-    
-    @staticmethod
-    def companies_house_key():
-        return os.environ.get('UK_COMPANIES_HOUSE_KEY')
-    
-    @staticmethod
-    def financial_datasets_key():
-        return os.environ.get('FINANCIAL_DATASETS_API_KEY')
+# Config is now in core/config.py, imported at top of file.
 
 
 # --- Helpers ---
@@ -158,6 +109,40 @@ def atomic_json_dump(data, path, **kwargs):
         if os.path.exists(tmp):
             os.remove(tmp)
         raise
+
+
+def triangulate_employees(sources):
+    """Cross-reference employee counts from multiple sources. Returns consensus + flags."""
+    values = {k: v for k, v in sources.items() if v}
+    if len(values) >= 2:
+        vals = list(values.values())
+        avg = sum(vals) / len(vals)
+        max_diff = max(vals) - min(vals)
+        if max_diff / max(avg, 1) > 0.5:
+            return {'consensus': round(avg), 'sources': values, 'confidence': 'low',
+                    'note': f'Disagreement: difference of {max_diff}'}
+        return {'consensus': round(avg), 'sources': values, 'confidence': 'high',
+                'note': f'Consistent across {len(values)} sources'}
+    elif len(values) == 1:
+        src, val = next(iter(values.items()))
+        return {'consensus': val, 'sources': values, 'confidence': 'low', 'note': f'Single source: {src}'}
+    return {'consensus': None, 'sources': {}, 'confidence': 'none', 'note': 'No data'}
+
+
+def check_freshness(scan_date_str):
+    """Check if a scan date is fresh (within 90 days)."""
+    if not scan_date_str:
+        return {'fresh': False, 'days_old': None, 'note': 'No date available'}
+    try:
+        scan_date = datetime.fromisoformat(str(scan_date_str))
+        delta = datetime.now() - scan_date
+        if delta.days > 365:
+            return {'fresh': False, 'days_old': delta.days, 'note': f'Stale: {delta.days} days old'}
+        elif delta.days > 90:
+            return {'fresh': False, 'days_old': delta.days, 'note': f'Aging: {delta.days} days old'}
+        return {'fresh': True, 'days_old': delta.days, 'note': f'Fresh: {delta.days} days ago'}
+    except (ValueError, TypeError):
+        return {'fresh': False, 'days_old': None, 'note': 'Invalid date format'}
 
 
 def folder_from(name):

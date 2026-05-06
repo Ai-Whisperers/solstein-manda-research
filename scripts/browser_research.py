@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Browser-powered company research module.
 Uses Playwright to render JavaScript, handle SPAs, and extract structured data.

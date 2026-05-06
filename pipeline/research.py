@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Complete research pipeline: single command to run all phases on a company.
 
@@ -26,6 +25,7 @@ BASE = os.path.join(os.path.dirname(__file__), '..', '..')
 JOHN_JSON = os.path.join(BASE, 'archive', 'john-original', 'horeca_json', 'horeca_data.json')
 
 from core.utils import safe_json_load, atomic_json_dump
+from core.config import Config
 DIMS = ['Ownership attractiveness', 'Revenue scale fit', 'Geographic fit',
         'Tech stack modernity', 'Customer lock-in', 'Vertical depth',
         'Integration potential', 'Growth trajectory']
@@ -48,132 +48,105 @@ def load_john_reference(company_name):
     return None
 
 
-def run_pipeline(company_name, domain=None):
-    """Run complete research pipeline for one company."""
-    print(f"\n{'='*60}")
-    print(f"Research Pipeline: {company_name}")
-    print(f"{'='*60}")
-
-    folder = company_name.lower().replace(' ', '-')
-    out_dir = os.path.join(BASE, 'output', 'HORECA', folder)
-    os.makedirs(out_dir, exist_ok=True)
-
-    # Step 1: Quick-scan
-    print(f"\n[1/5] Quick-scan...")
-    from sources.quickscan import quick_scan
+def _run_quickscan(company_name, domain, out_dir):
+    """Stage 1: Browser/stdlib quick-scan of company website."""
+    from scripts.quickscan import quick_scan
     scan = quick_scan(company_name, domain)
-    scan_path = os.path.join(out_dir, 'quickscan.json')
-    atomic_json_dump(scan, scan_path, indent=2)
+    atomic_json_dump(scan, os.path.join(out_dir, 'quickscan.json'), indent=2)
     print(f"  Method: {scan['method']}, reachable: {scan['website_reachable']}")
     print(f"  Tech: {', '.join(scan['tech_stack'][:6])}")
-    import time; time.sleep(2)  # Let browser fully close before enrichment
+    return scan
 
-    # Step 2: Enrichment
-    print(f"\n[2/5] Multi-source enrichment...")
-    from sources.enrich import enrich_company
+
+def _run_enrichment(company_name, domain, out_dir):
+    """Stage 2: Multi-source enrichment."""
+    from sources.enrichment import enrich_company
     enriched = enrich_company(company_name, domain)
-    enr_path = os.path.join(out_dir, 'enriched.json')
-    atomic_json_dump(enriched, enr_path, indent=2)
+    atomic_json_dump(enriched, os.path.join(out_dir, 'enriched.json'), indent=2)
     print(f"  Sources: {len(enriched['sources_found'])} — {', '.join(enriched['sources_found'])}")
+    return enriched
 
-    # Step 3: Score using rubric (model-agnostic — uses enriched data directly)
-    print(f"\n[3/5] Scoring...")
+
+def _score_from_enriched(enriched):
+    """Stage 3: Score company on 8 dimensions using enriched data."""
     from scoring import apply_vetoes, compute_composite
-
     w = enriched.get('website', {})
-    scores = {
-        'Ownership attractiveness': 3,
-        'Revenue scale fit': 3,
-        'Geographic fit': 4 if w.get('tech_stack') else 3,
-        'Tech stack modernity': 3,
-        'Customer lock-in': 3,
-        'Vertical depth': 3,
-        'Integration potential': 3,
-        'Growth trajectory': 3,
-    }
+    scores = {d: 3 for d in DIMS}
+    scores['Geographic fit'] = 4 if w.get('tech_stack') else 3
 
-    # Adjust from enriched data
-    if enriched.get('github') and enriched['github'].get('public_repos', 0) > 10:
+    if enriched.get('github', {}).get('public_repos', 0) > 10:
         scores['Tech stack modernity'] = 4
         scores['Integration potential'] = 4
-    if enriched.get('wikipedia'):
-        scores['Revenue scale fit'] = 3
     if w.get('tech_stack'):
         stack = w['tech_stack']
-        if 'Angular' in stack or 'React' in stack or 'Vue.js' in stack:
+        if any(x in stack for x in ['Angular', 'React', 'Vue.js']):
             scores['Tech stack modernity'] = 4
         if 'PHP' in stack:
             scores['Tech stack modernity'] = max(2, scores['Tech stack modernity'] - 1)
-        if 'Mollie' in stack or 'Stripe' in stack or 'Adyen' in stack:
+        if any(x in stack for x in ['Mollie', 'Stripe', 'Adyen']):
             scores['Integration potential'] = 4
 
-    # Apply vetoes
     cb = enriched.get('crunchbase') or {}
-    info = {
-        'ownership': str(cb.get('description', '') if isinstance(cb, dict) else ''),
-        'country': '',
-        'status': '',
-    }
-    changes = apply_vetoes(info, scores)
+    apply_vetoes({'ownership': str(cb.get('description', '') if isinstance(cb, dict) else ''),
+                  'country': '', 'status': ''}, scores)
     composite = round(compute_composite(scores), 2)
 
     print(f"  Composite: {composite}")
     for d in DIMS:
         print(f"    {d:<35} {scores.get(d, '?')}")
+    return scores, composite
 
-    # Step 4: Reflection
-    print(f"\n[4/5] Reflection loop...")
+
+def _reflect_and_refine(company_name, scores, enriched):
+    """Stage 4: Reflection loop to identify and fix weak dimensions."""
     from pipeline.reflect import ReflectionLoop
-    from scoring import compute_composite as reflect_comp
     john = load_john_reference(company_name)
     if john:
         print(f"  John reference available: composite={john['composite']}")
     else:
         print(f"  No John reference available")
+
     loop = ReflectionLoop()
     reflection = loop.improve_scorecard(company_name, scores, enriched, john_reference=john)
-
     if reflection['improved']:
         print(f"  Refinements: {reflection['total_improvements']}")
         scores = reflection['refined_scores']
-        composite = round(compute_composite(scores), 2)
-        print(f"  Refined composite: {composite}")
+    return scores, reflection, john
 
-    # Compute confidence from reflection + source count
+
+def _compute_confidence(enriched, reflection, scores, john):
+    """Compute confidence band from source count + reflection + ground truth."""
     src_count = len(enriched.get('sources_found', []))
     ref_rounds = len(reflection.get('rounds', []))
     total_improvements = reflection.get('total_improvements', 0)
+    composite = round(__import__('scoring').compute_composite(scores), 2)
 
-    if src_count >= 5 and ref_rounds >= 1:
-        confidence = 'High'
-    elif src_count >= 3:
-        confidence = 'Medium'
-    elif src_count >= 1:
-        confidence = 'Low'
-    else:
-        confidence = 'Very Low'
+    if src_count >= 5 and ref_rounds >= 1: conf = 'High'
+    elif src_count >= 3: conf = 'Medium'
+    elif src_count >= 1: conf = 'Low'
+    else: conf = 'Very Low'
 
-    if total_improvements > 0:
-        confidence = 'Medium'  # At least some refinement happened
-
+    if total_improvements > 0: conf = 'Medium'
     if john:
-        error = abs(composite - john['composite']) if john.get('composite') else 999
-        if error <= 0.5:
-            confidence = 'Validated'  # Highest — matches ground truth
+        err = abs(composite - john['composite']) if john.get('composite') else 999
+        if err <= 0.5: conf = 'Validated'
+    return conf
 
-    # Step 5: Write deep-analysis
-    print(f"\n[5/5] Writing scorecard...")
+
+def _write_report(company_name, domain, scan, enriched, scores, reflection, composite, out_dir):
+    """Stage 5: Generate and save the deep-analysis markdown report."""
     dim_rows = ''
     for i, dim in enumerate(DIMS, 1):
         s = scores.get(dim, 3)
         w = 'High' if i <= 3 else ('Medium' if i <= 6 else 'Low')
         dim_rows += f'| {i} | {dim} | {w} | {s} | From pipeline research | — |\n'
 
+    src_count = len(enriched.get('sources_found', []))
     da = f"""# {company_name} — Deep M&A Analysis
 
 **Research date**: {datetime.now().strftime('%Y-%m-%d')}
 **Pipeline**: Automated research pipeline v2
-**Sources**: {len(enriched.get('sources_found', []))} — {', '.join(enriched.get('sources_found', []))}
+**Sources**: {src_count} — {', '.join(enriched.get('sources_found', []))}
 
 ---
 
@@ -196,12 +169,8 @@ def run_pipeline(company_name, domain=None):
 |---|---|
 | Wikipedia | {'✓' if enriched.get('wikipedia') else '—'} |
 | GitHub | {'✓ ' + str(enriched.get('github', {}).get('public_repos', 0)) + ' repos' if enriched.get('github') else '—'} |
-| DNS | {'✓ ' + str(enriched.get('hosting', {}).get('hosting', '')) if enriched.get('hosting', {}).get('hosting') else '✓'} |
 | News | {'✓ ' + str(len(enriched.get('news', []))) + ' articles' if enriched.get('news') else '—'} |
-| Crunchbase | {'✓' if enriched.get('crunchbase') else '—'} |
 | SEC EDGAR | {'✓' if enriched.get('sec_edgar') else '—'} |
-| yfinance | {'✓' if enriched.get('yfinance') else '—'} |
-| Web Search | {'✓ ' + str(len(enriched.get('web_search', []))) + ' results' if enriched.get('web_search') else '—'} |
 
 ---
 
@@ -211,7 +180,7 @@ def run_pipeline(company_name, domain=None):
 |---|---|---|---|---|---|
 {dim_rows}
 **Composite**: {composite} / 5.0
-**Confidence band**: {'Medium-High' if len(enriched.get('sources_found', [])) >= 4 else 'Medium' if len(enriched.get('sources_found', [])) >= 2 else 'Low'}
+**Confidence band**: {'Medium-High' if src_count >= 4 else 'Medium' if src_count >= 2 else 'Low'}
 **Reflection rounds**: {len(reflection.get('rounds', []))}
 
 ---
@@ -220,20 +189,31 @@ def run_pipeline(company_name, domain=None):
 
 {'No refinements needed' if not reflection.get('improved') else f'{reflection["total_improvements"]} improvements made across {len(reflection.get("rounds", []))} rounds'}
 """
-
     da_path = os.path.join(out_dir, 'deep-analysis.md')
     with open(da_path, 'w') as f:
         f.write(da)
-
     print(f"  Written: {da_path}")
-    print(f"\n{'='*60}")
-    print(f"Done: {company_name} — composite {composite}/5.0")
-    print(f"{'='*60}")
+    return da_path
 
+
+def run_pipeline(company_name, domain=None):
+    """Run complete research pipeline for one company — 5 stages."""
+    print(f"\n{'='*60}\nResearch Pipeline: {company_name}\n{'='*60}")
+    out_dir = os.path.join(Config.HORECA_DIR, company_name.lower().replace(' ', '-'))
+    os.makedirs(out_dir, exist_ok=True)
+
+    scan = _run_quickscan(company_name, domain, out_dir)
+    enriched = _run_enrichment(company_name, domain, out_dir)
+    scores, composite = _score_from_enriched(enriched)
+    scores, reflection, john = _reflect_and_refine(company_name, scores, enriched)
+    composite = round(__import__('scoring').compute_composite(scores), 2)
+
+    _compute_confidence(enriched, reflection, scores, john)
+    _write_report(company_name, domain, scan, enriched, scores, reflection, composite, out_dir)
+
+    print(f"\n{'='*60}\nDone: {company_name} — composite {composite}/5.0\n{'='*60}")
     return {
-        'company': company_name,
-        'composite': composite,
-        'scores': scores,
+        'company': company_name, 'composite': composite, 'scores': scores,
         'sources': enriched.get('sources_found', []),
         'john_composite': john['composite'] if john else None,
     }

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Valuation engine — DCF, LBO, Comparable Company Analysis, SOTP.
 Integrates with scoring system to add financial valuation to M&A scores.

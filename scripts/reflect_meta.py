@@ -1,6 +1,5 @@
 import logging
 logger = logging.getLogger(__name__)
-#!/usr/bin/env python3
 """
 Bilevel Autoresearch outer loop — meta-optimizes the research pipeline.
 Reads experiment logs, identifies bottlenecks, generates improvements.

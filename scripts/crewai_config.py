@@ -18,7 +18,7 @@ import os
 
 def get_github_token():
     """Get GitHub token from environment or gh CLI."""
-    token = os.environ.get('GITHUB_TOKEN') or os.environ.get('GH_TOKEN')
+    from core.config import Config; token = Config.github_token()
     if token:
         return token
     try:

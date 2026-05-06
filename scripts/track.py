@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Experiment tracking database + deal-breaker detection + unified validation.
 Replaces the flat results.tsv with a proper SQLite database.
