@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 #!/usr/bin/env python3
 """
 Bilevel Autoresearch outer loop — meta-optimizes the research pipeline.
@@ -20,6 +22,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from scoring import DIMS, WEIGHT_MAP
+from core.utils import safe_json_load
 
 BASE = os.path.join(os.path.dirname(__file__), '..')
 HORECA_DIR = os.path.join(BASE, 'output', 'HORECA')
@@ -29,10 +32,11 @@ RESULTS_TSV = os.path.join(HORECA_DIR, 'results.tsv')
 
 def load_john_reference():
     """Load all John reference scores."""
-    with open(JOHN_JSON) as f:
-        data = json.load(f)
+    data = safe_json_load(JOHN_JSON, {})
+    if not data:
+        return {}
     result = {}
-    for c in data['companies']:
+    for c in data.get('companies', []):
         name = c['company_name']
         sc = c.get('scorecard')
         if sc and sc.get('composite_score'):

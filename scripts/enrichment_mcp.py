@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 #!/usr/bin/env python3
 """
 MCP-based enrichment pre-pass. Calls external MCP servers for company data.
