@@ -23,6 +23,18 @@ _CACHE = {}
 _CACHE_TTL = 3600  # 1 hour
 
 
+def _fetch(url, timeout=15):
+    try:
+        req = urllib.request.Request(url, headers={
+            'User-Agent': 'SolSteinResearch/1.0 (research@solstein.com)',
+            'Accept': 'application/json',
+        })
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.read().decode('utf-8', errors='replace')
+    except Exception:
+        return None
+
+
 def _cached_fetch(url, timeout=15, cache_key=None):
     """Fetch with caching to avoid hitting rate limits."""
     key = cache_key or url
@@ -41,6 +53,31 @@ def _cached_fetch(url, timeout=15, cache_key=None):
             return data
     except Exception:
         return None
+
+
+# --- Source 0: Wikipedia (free, no API key) ---
+
+def wikipedia_summary(company_name):
+    """Fetch Wikipedia article summary with entity disambiguation.
+    Tries '(company)' suffix first to avoid disambiguation pages (e.g. 'Apple (company)' not 'Apple')."""
+    base = company_name.split('(')[0].strip()
+    safe = base.replace(' ', '_')
+    candidates = [f"{safe}_(company)", safe, f"{safe}_(software)", f"{safe}_(website)"]
+    for name in candidates:
+        data = _fetch(f'https://en.wikipedia.org/api/rest_v1/page/summary/{name}')
+        if data:
+            try:
+                j = json.loads(data)
+                if j.get('extract') and 'may refer to' not in j.get('extract', ''):
+                    return {
+                        'title': j.get('title', ''),
+                        'description': j.get('description', ''),
+                        'extract': j.get('extract', '')[:800],
+                        'url': f"https://en.wikipedia.org/wiki/{name}",
+                    }
+            except (json.JSONDecodeError, KeyError):
+                continue
+    return None
 
 
 # --- Source 1: SEC EDGAR (free, no API key) ---
@@ -233,6 +270,7 @@ def enrich_free(company_name, domain=None, ticker=None, country=None):
         'company': company_name,
         'domain': domain or '',
         'enriched_at': datetime.now().isoformat(),
+        'wikipedia': None,
         'sec': None,
         'yfinance': None,
         'web_search': None,
@@ -241,6 +279,12 @@ def enrich_free(company_name, domain=None, ticker=None, country=None):
         'worldbank': None,
         'sources_found': [],
     }
+
+    # Wikipedia (free, no key)
+    wiki = wikipedia_summary(company_name)
+    if wiki:
+        result['wikipedia'] = wiki
+        result['sources_found'].append('wikipedia')
 
     # SEC EDGAR (free, no key)
     sec_results = sec_company_search(company_name)
@@ -288,6 +332,8 @@ if __name__ == '__main__':
 
     print(f"Company: {result['company']}")
     print(f"Sources found: {result['sources_found']}")
+    if result.get('wikipedia'):
+        print(f"  Wiki: {result['wikipedia']['title']} — {result['wikipedia']['description']}")
     if result.get('sec'):
         for r in result['sec']:
             print(f"  SEC: {r['name']} ({r['ticker']}) CIK={r['cik']}")
