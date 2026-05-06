@@ -21,8 +21,7 @@ from datetime import datetime, timedelta
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 BASE = os.path.join(os.path.dirname(__file__), '..')
 
-_CACHE = {}
-_CACHE_TTL = 3600  # 1 hour
+from core.cache import cache_get_or_fetch
 
 
 def _fetch(url, timeout=15):
@@ -38,23 +37,12 @@ def _fetch(url, timeout=15):
 
 
 def _cached_fetch(url, timeout=15, cache_key=None):
-    """Fetch with caching to avoid hitting rate limits."""
+    """Fetch with persistent disk cache — never re-fetches within 7 days."""
     key = cache_key or url
-    if key in _CACHE:
-        entry = _CACHE[key]
-        if datetime.now() - entry['time'] < timedelta(seconds=_CACHE_TTL):
-            return entry['data']
-    try:
-        req = urllib.request.Request(url, headers={
-            'User-Agent': 'SolSteinResearch/1.0 (research@solstein.com)',
-            'Accept': 'application/json',
-        })
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            data = resp.read().decode('utf-8', errors='replace')
-            _CACHE[key] = {'data': data, 'time': datetime.now()}
-            return data
-    except Exception:
-        return None
+    return cache_get_or_fetch(
+        'free_sources', key,
+        lambda: _fetch(url, timeout),
+    )
 
 
 # --- Source 0: Wikipedia (free, no API key) ---

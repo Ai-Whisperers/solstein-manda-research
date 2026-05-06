@@ -28,25 +28,26 @@ except ImportError:
         def get(key, default=None):
             return os.environ.get(key, default)
 
-_CACHE = {}
-_CACHE_TTL = 3600
+from core.cache import cache_get_or_fetch
 
 
 def _fetch(url, headers=None, timeout=15, cache_key=None):
     key = cache_key or url
-    if key in _CACHE:
-        entry = _CACHE[key]
-        if (datetime.now() - entry['time']).seconds < _CACHE_TTL:
-            return entry['data']
+    return cache_get_or_fetch(
+        'sources_plus', key,
+        lambda: _fetch_raw(url, headers, timeout),
+    )
+
+
+def _fetch_raw(url, headers=None, timeout=15):
+    """Raw HTTP fetch without caching."""
     try:
         hdrs = dict(headers or {})
         hdrs.setdefault('User-Agent', 'SolSteinResearch/1.0')
         hdrs.setdefault('Accept', 'application/json')
         req = urllib.request.Request(url, headers=hdrs)
         with urllib.request.urlopen(req, timeout=timeout) as resp:
-            data = resp.read().decode('utf-8', errors='replace')
-            _CACHE[key] = {'data': data, 'time': datetime.now()}
-            return data
+            return resp.read().decode('utf-8', errors='replace')
     except Exception:
         return None
 

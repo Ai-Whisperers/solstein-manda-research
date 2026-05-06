@@ -28,25 +28,27 @@ except ImportError:
         def get(key, default=None):
             return os.environ.get(key, default)
 
-_CACHE = {}
-_CACHE_TTL = 3600
+from core.cache import cache_get_or_fetch
 
 
 def _fetch(url, headers=None, timeout=15, cache_key=None):
     key = cache_key or url
-    if key in _CACHE:
-        entry = _CACHE[key]
-        if (datetime.now() - entry['time']).seconds < _CACHE_TTL:
-            return entry['data']
+    from core.cache import cache_get_or_fetch
+    return cache_get_or_fetch(
+        'sources_new', key,
+        lambda: _fetch_raw(url, headers, timeout),
+    )
+
+
+def _fetch_raw(url, headers=None, timeout=15):
+    """Raw HTTP fetch without caching."""
     try:
         req = urllib.request.Request(url, headers=headers or {
             'User-Agent': 'SolSteinResearch/1.0',
             'Accept': 'application/json',
         })
         with urllib.request.urlopen(req, timeout=timeout) as resp:
-            data = resp.read().decode('utf-8', errors='replace')
-            _CACHE[key] = {'data': data, 'time': datetime.now()}
-            return data
+            return resp.read().decode('utf-8', errors='replace')
     except Exception:
         return None
 
@@ -56,21 +58,19 @@ def _fetch_api_key_header(url, api_key, timeout=15, cache_key=None):
     Uses curl as subprocess to preserve header casing."""
     import subprocess
     key = cache_key or url
-    if key in _CACHE:
-        entry = _CACHE[key]
-        if (datetime.now() - entry['time']).seconds < _CACHE_TTL:
-            return entry['data']
-    try:
-        result = subprocess.run(
-            ['curl', '-s', '-H', f'X-API-KEY: {api_key}', url],
-            capture_output=True, text=True, timeout=timeout
-        )
-        if result.returncode == 0 and result.stdout:
-            _CACHE[key] = {'data': result.stdout, 'time': datetime.now()}
-            return result.stdout
-    except Exception:
-        pass
-    return None
+    from core.cache import cache_get_or_fetch
+    def _fetch_curl():
+        try:
+            result = subprocess.run(
+                ['curl', '-s', '-H', f'X-API-KEY: {api_key}', url],
+                capture_output=True, text=True, timeout=timeout
+            )
+            if result.returncode == 0 and result.stdout:
+                return result.stdout
+        except Exception:
+            pass
+        return None
+    return cache_get_or_fetch('financial_datasets', key, _fetch_curl)
 
 
 # --- Source 1: LinkedIn (via MCP server, free public data) ---

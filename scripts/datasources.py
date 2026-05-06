@@ -38,10 +38,20 @@ _ua_lock = threading.Lock()
 
 
 def fetch(url, timeout=15):
+    """Fetch with rotating UA and persistent disk cache."""
     global _ua_index
     with _ua_lock:
         ua = _USER_AGENTS[_ua_index % len(_USER_AGENTS)]
         _ua_index += 1
+    from core.cache import cache_get_or_fetch
+    return cache_get_or_fetch(
+        'datasources', url,
+        lambda: _fetch_raw(url, ua, timeout),
+    )
+
+
+def _fetch_raw(url, ua, timeout=15):
+    """Raw HTTP fetch (no caching)."""
     try:
         req = urllib.request.Request(url, headers={
             'User-Agent': ua,
@@ -56,6 +66,7 @@ def fetch(url, timeout=15):
 
 def fetch_parallel(sources, max_workers=5):
     """Run multiple source fetches in parallel. sources is list of (name, callable)."""
+    from concurrent.futures import ThreadPoolExecutor, as_completed
     results = {}
     with ThreadPoolExecutor(max_workers=max_workers) as exec:
         future_map = {exec.submit(fn): name for name, fn in sources}
@@ -66,18 +77,6 @@ def fetch_parallel(sources, max_workers=5):
             except Exception:
                 results[name] = None
     return results
-
-
-def fetch(url, timeout=15):
-    try:
-        req = urllib.request.Request(url, headers={
-            'User-Agent': 'Mozilla/5.0 (compatible; SolSteinResearch/1.0)',
-            'Accept': 'application/json,text/html'
-        })
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            return resp.read().decode('utf-8', errors='replace')
-    except Exception:
-        return None
 
 
 # --- Source 1: Wikipedia ---
