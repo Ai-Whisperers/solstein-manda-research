@@ -1,0 +1,248 @@
+{
+  "ticker": "AAPL",
+  "dcf": {
+    "ticker": "AAPL",
+    "company": "Apple Inc.",
+    "method": "dcf",
+    "wacc": 0.0999,
+    "cost_of_equity": 0.1011,
+    "enterprise_value": 1266660616670.19,
+    "equity_value": 1250456619486.19,
+    "intrinsic_per_share": 85.14,
+    "current_price": 284.18,
+    "upside_pct": -70.0,
+    "projections": [
+      {
+        "year": 1,
+        "revenue": 496586217881.60004,
+        "fcf": 74487932682.24,
+        "pv": 67725528185.95091
+      },
+      {
+        "year": 2,
+        "revenue": 546244839669.7601,
+        "fcf": 81936725950.464,
+        "pv": 67734755190.42835
+      },
+      {
+        "year": 3,
+        "revenue": 600869323636.7362,
+        "fcf": 90130398545.51042,
+        "pv": 67743983452.0036
+      },
+      {
+        "year": 4,
+        "revenue": 660956256000.4098,
+        "fcf": 99143438400.06146,
+        "pv": 67753212970.84789
+      },
+      {
+        "year": 5,
+        "revenue": 727051881600.4508,
+        "fcf": 109057782240.06761,
+        "pv": 67762443747.13253
+      }
+    ],
+    "terminal_value": 1493440148351.76,
+    "debt": 84710998016,
+    "cash": 68507000832,
+    "shares": 14687356000,
+    "confidence": "low"
+  },
+  "lbo": {
+    "method": "lbo",
+    "entry_ebitda": 159976.0,
+    "entry_multiple": 8.0,
+    "entry_ev": 1279807.98,
+    "debt": 639903.99,
+    "equity": 639903.99,
+    "exit_ebitda": 235057.22,
+    "exit_multiple": 10.0,
+    "exit_ev": 2350572.25,
+    "exit_equity": 1913387.57,
+    "irr": 0,
+    "moic": 2.99,
+    "projections": [
+      {
+        "year": 1,
+        "ebitda": 172774.08,
+        "interest": 38394.24,
+        "debt_payment": 34554.82,
+        "remaining_debt": 605349.17
+      },
+      {
+        "year": 2,
+        "ebitda": 186596.0,
+        "interest": 36320.95,
+        "debt_payment": 37319.2,
+        "remaining_debt": 568029.97
+      },
+      {
+        "year": 3,
+        "ebitda": 201523.68,
+        "interest": 34081.8,
+        "debt_payment": 40304.74,
+        "remaining_debt": 527725.24
+      },
+      {
+        "year": 4,
+        "ebitda": 217645.58,
+        "interest": 31663.51,
+        "debt_payment": 43529.12,
+        "remaining_debt": 484196.12
+      },
+      {
+        "year": 5,
+        "ebitda": 235057.22,
+        "interest": 29051.77,
+        "debt_payment": 47011.44,
+        "remaining_debt": 437184.68
+      }
+    ]
+  },
+  "comps": {
+    "method": "comps",
+    "target": "AAPL",
+    "peers": [
+      {
+        "ticker": "AAPL",
+        "name": "Apple Inc.",
+        "market_cap": 4173852573696,
+        "ev": 4190056742912,
+        "revenue": 451442016256,
+        "ebitda": 159975997440,
+        "ebit": 0,
+        "net_income": 122575003648,
+        "pe": 34.44606,
+        "ps": 9.245601,
+        "pb": 47.379124,
+        "ev_revenue": 9.281,
+        "ev_ebitda": 26.192,
+        "sector": "Technology",
+        "industry": "Consumer Electronics"
+      },
+      {
+        "ticker": "MSFT",
+        "name": "Microsoft Corporation",
+        "market_cap": 3055909601280,
+        "ev": 3119753199616,
+        "revenue": 318272995328,
+        "ebitda": 184457003008,
+        "ebit": 0,
+        "net_income": 125215997952,
+        "pe": 24.501488,
+        "ps": 9.601536,
+        "pb": 7.8186827,
+        "ev_revenue": 9.802,
+        "ev_ebitda": 16.913,
+        "sector": "Technology",
+        "industry": "Software - Infrastructure"
+      },
+      {
+        "ticker": "GOOGL",
+        "name": "Alphabet Inc.",
+        "market_cap": 4706001747968,
+        "ev": 4675738271744,
+        "revenue": 422498009088,
+        "ebitda": 161315995648,
+        "ebit": 0,
+        "net_income": 160207994880,
+        "pe": 29.628529,
+        "ps": 11.138518,
+        "pb": 11.307018,
+        "ev_revenue": 11.067,
+        "ev_ebitda": 28.985,
+        "sector": "Communication Services",
+        "industry": "Internet Content & Information"
+      },
+      {
+        "ticker": "META",
+        "name": "Meta Platforms, Inc.",
+        "market_cap": 1535644663808,
+        "ev": 1541233573888,
+        "revenue": 214962995200,
+        "ebitda": 109308002304,
+        "ebit": 0,
+        "net_income": 70586998784,
+        "pe": 21.974573,
+        "ps": 7.143763,
+        "pb": 7.045315,
+        "ev_revenue": 7.17,
+        "ev_ebitda": 14.1,
+        "sector": "Communication Services",
+        "industry": "Internet Content & Information"
+      },
+      {
+        "ticker": "ORCL",
+        "name": "Oracle Corporation",
+        "market_cap": 533075165184,
+        "ev": 661618098176,
+        "revenue": 64076001280,
+        "ebitda": 27441000448,
+        "ebit": 0,
+        "net_income": 16188000256,
+        "pe": 33.27648,
+        "ps": 8.31942,
+        "pb": 15.888051,
+        "ev_revenue": 10.326,
+        "ev_ebitda": 24.111,
+        "sector": "Technology",
+        "industry": "Software - Infrastructure"
+      },
+      {
+        "ticker": "CRM",
+        "name": "Salesforce, Inc.",
+        "market_cap": 152967872512,
+        "ev": 180737769472,
+        "revenue": 41524998144,
+        "ebitda": 12547999744,
+        "ebit": 0,
+        "net_income": 7456999936,
+        "pe": 23.942383,
+        "ps": 3.683754,
+        "pb": 2.937231,
+        "ev_revenue": 4.353,
+        "ev_ebitda": 14.404,
+        "sector": "Technology",
+        "industry": "Software - Application"
+      },
+      {
+        "ticker": "ADBE",
+        "name": "Adobe Inc.",
+        "market_cap": 103321600000,
+        "ev": 103092600832,
+        "revenue": 24452999168,
+        "ebitda": 9516000256,
+        "ebit": 0,
+        "net_income": 7208000000,
+        "pe": 14.887594,
+        "ps": 4.225314,
+        "pb": 9.0774145,
+        "ev_revenue": 4.216,
+        "ev_ebitda": 10.834,
+        "sector": "Technology",
+        "industry": "Software - Application"
+      },
+      {
+        "ticker": "NOW",
+        "name": "ServiceNow, Inc.",
+        "market_cap": 94890655744,
+        "ev": 92098396160,
+        "revenue": 13959999488,
+        "ebitda": 2888000000,
+        "ebit": 0,
+        "net_income": 1756999936,
+        "pe": 54.76786,
+        "ps": 6.797325,
+        "pb": 8.090925,
+        "ev_revenue": 6.597,
+        "ev_ebitda": 31.89,
+        "sector": "Technology",
+        "industry": "Software - Application"
+      }
+    ]
+  },
+  "median_ev_ebitda": 20.5,
+  "mean_ev_ebitda": 20.9,
+  "median_pe": 27.1
+}
