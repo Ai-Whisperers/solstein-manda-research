@@ -4,28 +4,35 @@
 
 ---
 
-## Current State: 18 Sources Integrated
+## Current State: 25 Sources Integrated (+7 new)
 
-| # | Source | Type | Data Provided | Key |
-|---|---|---|---|---|
-| 1 | Wikipedia | REST | Company description, founded, HQ, employees | Free |
-| 2 | GitHub | REST | Repos, stars, languages, org profile | `GITHUB_TOKEN` |
-| 3 | DuckDuckGo | HTML scrape | Web search results | Free |
-| 4 | SEC EDGAR | REST | Financial filings, XBRL data | Free |
-| 5 | yfinance | Library | Stock data, company profile | Free |
-| 6 | GLEIF | REST | Legal entity identifier, registration | Free |
-| 7 | World Bank | REST | Economic indicators by country | Free |
-| 8 | AbstractAPI | REST | Industry, employee range, revenue range | `ABSTRACT_API_KEY` |
-| 9 | Financial Datasets | REST | Company facts, income statements | `FINANCIAL_DATASETS_API_KEY` |
-| 10 | Brave News | REST | Recent news articles | Free |
-| 11 | Crunchbase | HTML scrape | Funding, investors | Free |
-| 12 | OpenCorporates | REST/HTML | Legal entity, jurisdiction, status | Free |
-| 13 | UK Companies House | REST | UK company registration data | `UK_COMPANIES_HOUSE_KEY` |
-| 14 | French SIRENE | REST | French company registration | Free |
-| 15 | VIES VAT | SOAP | EU VAT validation | Free |
-| 16 | OpenRegistry | REST | 27 national registries | Free |
-| 17 | Playwright/CloakBrowser | Browser | Tech stack, pricing, careers | Free |
-| 18 | DNS/hosting | Stdlib | IP, hosting provider | Free |
+| # | Source | Type | Data Provided | Key | Status |
+|---|---|---|---|---|---|
+| 1 | Wikipedia | REST | Company description, founded, HQ, employees | Free | ✅ |
+| 2 | GitHub | REST | Repos, stars, languages, org profile | `GITHUB_TOKEN` | ✅ |
+| 3 | DuckDuckGo | HTML scrape | Web search results | Free | ✅ |
+| 4 | SEC EDGAR | REST | Financial filings, XBRL data | Free | ✅ |
+| 5 | yfinance | Library | Stock data, company profile | Free | ✅ |
+| 6 | GLEIF | REST | Legal entity identifier, registration | Free | ✅ |
+| 7 | World Bank | REST | Economic indicators by country | Free | ✅ |
+| 8 | AbstractAPI | REST | Industry, employee range, revenue range | `ABSTRACT_API_KEY` | ✅ |
+| 9 | Financial Datasets | REST | Company facts, income statements | `FINANCIAL_DATASETS_API_KEY` | ✅ |
+| 10 | Brave News | REST | Recent news articles | Free | ✅ |
+| 11 | Crunchbase (scrape) | HTML scrape | Funding, investors | Free | ⏳ (API version available) |
+| 12 | OpenCorporates | REST/HTML | Legal entity, jurisdiction, status | Free | ✅ |
+| 13 | UK Companies House | REST | UK company registration data | `UK_COMPANIES_HOUSE_KEY` | ⏳ |
+| 14 | French SIRENE | REST | French company registration | Free | ✅ |
+| 15 | VIES VAT | SOAP | EU VAT validation | Free | ✅ |
+| 16 | OpenRegistry | REST | 27 national registries | Free | ✅ |
+| 17 | Playwright/CloakBrowser | Browser | Tech stack, pricing, careers | Free | ✅ |
+| 18 | DNS/hosting | Stdlib | IP, hosting provider | Free | ✅ |
+| 19 | **Clearbit** | REST | Funding stage, raised capital, category, company type | `CLEARBIT_KEY` | ✅ **NEW** |
+| 20 | **BuiltWith** | REST | Full tech stack (50k technologies, versions) | `BUILTWITH_KEY` | ✅ **NEW** |
+| 21 | **Crunchbase API** | REST | Structured funding, investors, acquisitions | `CRUNCHBASE_KEY` | ✅ **NEW** |
+| 22 | **Glassdoor** | REST | Rating, CEO approval, culture, salary | `GLASSDOOR_KEY` | ✅ **NEW** |
+| 23 | **LinkedIn** | Search | Employee count, open roles | Free | ✅ **NEW** |
+| 24 | **SerpAPI** | REST | Structured Google results, knowledge graph | `SERPAPI_KEY` | ✅ **NEW** |
+| 25 | **USPTO Patent** | REST | Patent count, tech categories, citations | Free | ✅ **NEW** |
 
 ---
 
@@ -167,27 +174,32 @@ These add meaningful signal.
 
 ---
 
-## Already Covered by Current 18 Sources
+## Already Covered by Current 25 Sources
 
 No need to duplicate — we already get this data:
 
 | Data Point | Current Source(s) |
 |---|---|
-| Company description | Wikipedia, Playwright |
-| Basic financials (public) | SEC EDGAR, yfinance |
+| Company description | Wikipedia, Playwright, Clearbit, SerpAPI (KG) |
+| Basic financials (public) | SEC EDGAR, yfinance, Financial Datasets |
 | Stock price | yfinance |
-| Legal entity (US public) | SEC EDGAR (CIK) |
+| Legal entity (US public) | SEC EDGAR (CIK), Clearbit |
 | Legal entity (global) | GLEIF (LEI) |
 | Legal entity (UK) | Companies House |
 | Legal entity (France) | SIRENE |
 | Legal entity (27 countries) | OpenRegistry |
 | EU VAT validation | VIES |
+| **Full tech stack (50k techs)** | **BuiltWith** ⬅️ new |
 | Tech stack (basic) | Playwright browser |
-| News | Brave News |
+| News | Brave News, SerpAPI |
 | GitHub activity | GitHub API |
-| Employee data (abstract) | AbstractAPI |
+| **Funding stage + raised capital** | **Clearbit, Crunchbase API** ⬅️ new |
+| **Company rating + culture** | **Glassdoor** ⬅️ new |
+| Employee data | AbstractAPI, Clearbit, LinkedIn |
 | Financial statements (public) | Financial Datasets |
 | Country economics | World Bank |
+| **Patent count + tech moat** | **USPTO** ⬅️ new |
+| **Google knowledge graph** | **SerpAPI** ⬅️ new |
 
 ---
 
@@ -205,24 +217,30 @@ These are the hardest scoring dimensions to improve:
 
 ---
 
-## Integration Priority Order
+## Integration Status
 
 ```
-IMMEDIATE (this sprint):
-  1. Clearbit Company API    → replaces AbstractAPI primary enrichment
-  2. BuiltWith Tech API      → replaces browser tech detection
-  3. LinkedIn search         → employee growth proxy
+DONE (2026-05-06):
+  ✅ Clearbit Company API         → scripts/sources_plus.py
+  ✅ BuiltWith Tech API           → scripts/sources_plus.py
+  ✅ Crunchbase API               → scripts/sources_plus.py (alongside scrape)
+  ✅ Glassdoor API                → scripts/sources_plus.py
+  ✅ LinkedIn employee search     → scripts/sources_plus.py
+  ✅ SerpAPI                      → scripts/sources_plus.py
+  ✅ USPTO Patent API             → scripts/sources_plus.py
+  → All 7 wired into datasources.enrich_company()
 
-NEXT SPRINT:
-  4. Crunchbase API          → replaces HTML scraping
-  5. Marketstack             → replaces yfinance
-  6. Glassdoor API           → new dimension (culture score)
+NEXT (no keys required from you):
+  ⬜ Marketstack                  → replace yfinance in free_sources.py
+  ⬜ NewsAPI                      → replace Brave News in datasources.py
+  ⬜ OpenCorporates REST API      → replace HTML scrape in datasources.py
 
-NEXT MONTH:
-  7. SerpAPI                 → replaces DuckDuckGo HTML search
-  8. NewsAPI                 → replaces Brave News
-  9. USPTO Patent/Trademark  → tech moat validation
- 10. OpenCorporates API      → replaces HTML scraping
+NEEDS YOU TO SIGN UP (then we activate):
+  🔑 Clearbit   → dashboard.clearbit.com       → CLEARBIT_KEY
+  🔑 BuiltWith  → api.builtwith.com            → BUILTWITH_KEY
+  🔑 Crunchbase → developers.crunchbase.com    → CRUNCHBASE_KEY
+  🔑 Glassdoor  → glassdoor.com/developer      → GLASSDOOR_KEY
+  🔑 SerpAPI    → serpapi.com                  → SERPAPI_KEY
 ```
 
 ---
