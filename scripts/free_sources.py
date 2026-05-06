@@ -62,7 +62,8 @@ def wikipedia_summary(company_name):
     Tries '(company)' suffix first to avoid disambiguation pages (e.g. 'Apple (company)' not 'Apple')."""
     base = company_name.split('(')[0].strip()
     safe = base.replace(' ', '_')
-    candidates = [f"{safe}_(company)", safe, f"{safe}_(software)", f"{safe}_(website)"]
+    candidates = [f"{safe}_(company)", safe, f"{safe}_(software)", f"{safe}_(website)",
+                  f"{safe}_(software_company)", f"{safe}_(technology_company)"]
     for name in candidates:
         data = _fetch(f'https://en.wikipedia.org/api/rest_v1/page/summary/{name}')
         if data:
