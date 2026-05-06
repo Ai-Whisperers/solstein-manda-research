@@ -442,6 +442,18 @@ def enrich_company(company_name, domain=None):
     except Exception:
             pass
 
+    # Plus sources (Clearbit, BuiltWith, Crunchbase API, Glassdoor, LinkedIn, SerpAPI, USPTO)
+    try:
+        from sources_plus import enrich_plus
+        plus = enrich_plus(company_name, result.get('domain'))
+        for src in plus.get('sources_found', []):
+            val = plus.get(src)
+            if val:
+                result[src] = val
+                result['sources_found'].append(src)
+    except Exception:
+            pass
+    
     # Source triangulation
     emp_sources = {}
     if result['wikipedia']:
