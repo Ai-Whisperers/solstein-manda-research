@@ -105,9 +105,8 @@ def quick_scan(company_name, domain=None):
     if _HAS_PLAYWRIGHT:
         try:
             from browser_research import CompanyBrowser
-            browser = CompanyBrowser(headless=True, timeout=25000)
-            br = browser.research_company(domain)
-            browser.close()
+            with CompanyBrowser(headless=True, timeout=25000) as browser:
+                br = browser.research_company(domain)
             result['website_reachable'] = br['reachable']
             result['title'] = br['title']
             result['description'] = br['description']

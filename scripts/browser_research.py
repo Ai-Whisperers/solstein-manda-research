@@ -38,6 +38,10 @@ class CompanyBrowser:
 
     def __init__(self, headless=True, timeout=30000):
         self._cloak = _has_cloak
+        self.browser = None
+        self.context = None
+        self.page = None
+        self.play = None
         if _has_cloak:
             logger.info("Using CloakBrowser (stealth mode)")
             import cloakbrowser
@@ -247,14 +251,36 @@ class CompanyBrowser:
         return result
 
     def close(self):
-        if self.page:
-            self.page.close()
-        if self.context:
-            self.context.close()
-        if self.browser:
-            self.browser.close()
-        if self.play:
-            self.play.stop()
+        try:
+            if self.page:
+                self.page.close()
+        except Exception:
+            pass
+        try:
+            if self.context:
+                self.context.close()
+        except Exception:
+            pass
+        try:
+            if self.browser:
+                self.browser.close()
+        except Exception:
+            pass
+        try:
+            if getattr(self, 'play', None):
+                self.play.stop()
+        except Exception:
+            pass
+
+    def __del__(self):
+        """Ensure browser cleanup on garbage collection (defense against stale processes)."""
+        self.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()
 
 
 if __name__ == '__main__':
