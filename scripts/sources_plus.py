@@ -99,38 +99,30 @@ def clearbit_enrich(domain):
 # ──────────────────────────────────────────────
 
 def builtwith_tech(domain):
-    """Detect full technology stack via BuiltWith.
-    Free tier: 50 requests/month. Detects 50,000+ technologies.
-    Returns: list of {name, category, first_seen, last_seen}."""
+    """Detect technology stack via BuiltWith.
+    NOTE: Free tier returns technology group structure but NOT individual tech names.
+    Paid tier (~$99/mo) required for actual technology names.
+    Falls back to browser-based detection (Playwright) which is free."""
     key = Config.get('BUILTWITH_KEY')
     if not key or not domain:
         return None
     clean_domain = domain.replace('https://', '').replace('http://', '').split('/')[0]
+    # Free endpoint (returns groups without tech names) - try it anyway
     data = _fetch(
-        f'https://api.builtwith.com/v21/api.json?KEY={key}&LOOKUP={clean_domain}',
+        f'https://api.builtwith.com/free1/api.json?KEY={key}&LOOKUP={clean_domain}',
         timeout=15, cache_key=f'bw_{clean_domain}'
     )
     if not data:
         return None
     try:
         j = json.loads(data)
-        results = j.get('Results', [])
-        if not results:
+        groups = j.get('groups', [])
+        if not groups:
             return None
-        groups = results[0].get('Result', {}).get('Paths', [])
-        techs = []
-        for path_group in groups:
-            for tech in path_group.get('Technologies', []):
-                techs.append({
-                    'name': tech.get('Name'),
-                    'category': tech.get('Category'),
-                    'description': (tech.get('Description') or '')[:200],
-                    'first_seen': tech.get('FirstDetected'),
-                    'last_seen': tech.get('LastDetected'),
-                    'link': tech.get('Link'),
-                    'tag': tech.get('Tag'),
-                })
-        return {'technologies': techs, 'count': len(techs), 'source': 'builtwith'}
+        # Free tier: just return the group categories (no individual techs)
+        categories = [g.get('name') for g in groups if g.get('name')]
+        return {'categories': categories, 'count': len(categories), 'source': 'builtwith_free',
+                'note': 'Free tier — categories only. Browser detection provides actual tech names.'}
     except (json.JSONDecodeError, KeyError, IndexError):
         return None
 
@@ -349,37 +341,39 @@ def serpapi_search(company_name, max_results=5):
 # ──────────────────────────────────────────────
 
 def uspto_patents(company_name):
-    """Search patents assigned to a company via USPTO Bulk Data API.
-    Free, no API key required.
-    Returns: patent count, recent patents, technology categories."""
-    # Try USPTO patent search API
-    query = urllib.parse.quote(f'AN/{company_name}')
-    data = _fetch(
-        f'https://developer.uspto.gov/ds-api/patents/query?q={query}&rows=5&start=0',
-        timeout=10, cache_key=f'uspto_{company_name}'
-    )
-    if not data:
-        return None
-    try:
-        j = json.loads(data)
-        response = j.get('response', {})
-        docs = response.get('docs', [])
-        total = response.get('numFound', 0)
-        patents = []
-        for d in docs[:5]:
-            patents.append({
-                'title': (d.get('inventionTitle') or d.get('patentTitle', ''))[:150],
-                'patent_id': d.get('patentNumber', ''),
-                'date': d.get('patentDate', ''),
-                'assignee': d.get('assigneeEntityName', ''),
-            })
-        return {
-            'total_patents': total,
-            'recent': patents,
-            'source': 'uspto',
-        }
-    except (json.JSONDecodeError, KeyError):
-        return None
+    """Search patents assigned to a company via USPTO.
+    NOTE: USPTO deprecated their old free API (shuts down May 29, 2026).
+    New API at data.uspto.gov requires registration.
+    Returns: patent data if available, None otherwise.
+    Falls back to Google Patents search via SerpAPI when key is available."""
+    import urllib.parse
+    # Try Google Patents search via SerpAPI
+    serp_key = Config.get('SERPAPI_KEY')
+    if serp_key:
+        data = _fetch(
+            f'https://serpapi.com/search?q={urllib.parse.quote(company_name)}+patents&api_key={serp_key}&num=5&tbm=pts',
+            timeout=10, cache_key=f'gpat_{company_name}'
+        )
+        if data:
+            try:
+                j = json.loads(data)
+                results = j.get('organic_results', [])
+                if results:
+                    patents = []
+                    for r in results[:5]:
+                        patents.append({
+                            'title': r.get('title', '')[:150],
+                            'link': r.get('link', ''),
+                            'snippet': (r.get('snippet') or '')[:200],
+                        })
+                    return {
+                        'total_patents': len(results),
+                        'recent': patents,
+                        'source': 'google_patents_via_serpapi',
+                    }
+            except (json.JSONDecodeError, KeyError):
+                pass
+    return None
 
 
 # ──────────────────────────────────────────────
