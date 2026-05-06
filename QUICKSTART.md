@@ -75,13 +75,19 @@ from sources import quick_scan, enrich_company, CompanyBrowser
 
 ## Environment Variables
 
+Copy `.env.example` to `.env` or export directly:
+
 ```bash
-# Optional (for additional sources):
+# === HIGHLY RECOMMENDED (adds employee count + revenue) ===
+# Sign up at https://www.abstractapi.com/api/company-enrichment (free, 100 req/mo)
+export ABSTRACT_API_KEY=your_key_here
+
+# === OPTIONAL SOURCE ENRICHMENT ===
 export UK_COMPANIES_HOUSE_KEY=<free_from_gov.uk>
 export FINANCIAL_DATASETS_API_KEY=<free_from_financialdatasets.ai>
 
 # Already configured:
-# - GitHub token: auto-detected
+# - GitHub token: auto-detected from gh CLI or env
 # - LiteLLM proxy: 72.61.44.159:4000
 # - OpenRegistry: free, no key needed
 ```
