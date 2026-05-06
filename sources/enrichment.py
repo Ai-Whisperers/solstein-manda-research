@@ -101,8 +101,9 @@ def enrich_company(company_name, domain=None):
         m = re.search(r'(\d[\d,]*)\s*employees?', result['wikipedia'].get('extract', ''), re.I)
         if m:
             emp['wikipedia'] = int(m.group(1).replace(',', ''))
-    if result.get('github', {}).get('public_repos'):
-        emp['github_repos'] = result['github']['public_repos']
+    gh = result.get('github')
+    if gh and gh.get('public_repos'):
+        emp['github_repos'] = gh['public_repos']
     result['triangulation']['employees'] = triangulate_employees(emp)
 
     return result
