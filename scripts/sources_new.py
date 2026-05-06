@@ -16,7 +16,17 @@ import json, os, sys, urllib.request, urllib.error, re
 from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 BASE = os.path.join(os.path.dirname(__file__), '..')
+
+# Load .env for API keys
+try:
+    from core.utils import Config
+except ImportError:
+    class Config:
+        @staticmethod
+        def get(key, default=None):
+            return os.environ.get(key, default)
 
 _CACHE = {}
 _CACHE_TTL = 3600
@@ -39,6 +49,28 @@ def _fetch(url, headers=None, timeout=15, cache_key=None):
             return data
     except Exception:
         return None
+
+
+def _fetch_api_key_header(url, api_key, timeout=15, cache_key=None):
+    """Fetch from an API that requires exact-case headers (urllib lowercases them).
+    Uses curl as subprocess to preserve header casing."""
+    import subprocess
+    key = cache_key or url
+    if key in _CACHE:
+        entry = _CACHE[key]
+        if (datetime.now() - entry['time']).seconds < _CACHE_TTL:
+            return entry['data']
+    try:
+        result = subprocess.run(
+            ['curl', '-s', '-H', f'X-API-KEY: {api_key}', url],
+            capture_output=True, text=True, timeout=timeout
+        )
+        if result.returncode == 0 and result.stdout:
+            _CACHE[key] = {'data': result.stdout, 'time': datetime.now()}
+            return result.stdout
+    except Exception:
+        pass
+    return None
 
 
 # --- Source 1: LinkedIn (via MCP server, free public data) ---
@@ -146,14 +178,14 @@ def vies_search_by_name(company_name, country='NL'):
 # --- Source 4: Financial Datasets (SEC financials, stock data) ---
 
 def financial_datasets_profile(ticker):
-    """Get structured financial data via Financial Datasets API.
-    MCP server with 1,982★. Free tier available."""
-    api_key = os.environ.get('FINANCIAL_DATASETS_API_KEY')
+    """Get company facts via Financial Datasets API.
+    Returns name, industry, sector, employee count for US public companies."""
+    api_key = Config.get('FINANCIAL_DATASETS_API_KEY')
     if not api_key:
         return None
-    data = _fetch(
-        f'https://api.financialdatasets.ai/v1/company/{ticker}/profile',
-        headers={'X-API-Key': api_key},
+    data = _fetch_api_key_header(
+        f'https://api.financialdatasets.ai/company/facts?ticker={ticker}',
+        api_key=api_key,
         timeout=15, cache_key=f'fd_{ticker}'
     )
     if data:
@@ -166,12 +198,12 @@ def financial_datasets_profile(ticker):
 
 def financial_datasets_income(ticker):
     """Get income statements."""
-    api_key = os.environ.get('FINANCIAL_DATASETS_API_KEY')
+    api_key = Config.get('FINANCIAL_DATASETS_API_KEY')
     if not api_key:
         return None
-    data = _fetch(
-        f'https://api.financialdatasets.ai/v1/income-statements/{ticker}',
-        headers={'X-API-Key': api_key},
+    data = _fetch_api_key_header(
+        f'https://api.financialdatasets.ai/financials/income-statements?ticker={ticker}&period=annual&limit=3',
+        api_key=api_key,
         timeout=15, cache_key=f'fd_is_{ticker}'
     )
     if data:
