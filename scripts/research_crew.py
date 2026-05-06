@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 """
 ResearchCoordinator — CrewAI-based multi-agent research crew for M&A target scoring.
-Coordinates 5 specialist agents + validator to produce the 8-dimension scorecard.
+Integrates patterns from due-diligence-agents v1.5.0 (9 domains) and DealScout (combative debate).
+
+Agents (9 specialists + validator + synthesis = 11 total):
+  - Ownership, Financial, Tech, Market, Legal, Tax, ESG (7 specialist analysts)
+  - Debate Moderator, Questions Generator (DealScout pattern)
+  - Validator (dd-agents Judge pattern)
+  - Synthesizer/GP (dd-agents Executive Synthesis pattern)
 
 Usage:
     from research_crew import ResearchCoordinator
@@ -9,10 +15,11 @@ Usage:
     result = crew.research("Booking Experts", "https://bookingexperts.com")
     print(result['scorecard'])
 
-Pattern: CrewAI Flows + Crews (crewAIInc/crewAI)
+Patterns: CrewAI, due-diligence-agents v1.5.0, DealScout
 """
 
-import json, os, sys
+import json, os, sys, logging
+logger = logging.getLogger(__name__)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 
@@ -135,6 +142,32 @@ class ResearchCoordinator:
             goal='Assess environmental, social, and governance factors affecting acquisition value',
             backstory='You evaluate ESG maturity, sustainability practices, and governance quality as they impact deal risk and valuation.',
             llm=llm_default,
+            verbose=self.verbose,
+        )
+
+        # DealScout-pattern debate agents
+        self.debate_moderator = Agent(
+            role='Debate Moderator',
+            goal='Force analysts to argue their positions and detect contradictions',
+            backstory='You are an instigator. You force the Market, Product, and Financial analysts to defend their conclusions and challenge each other\'s assumptions.',
+            llm=llm_default,
+            verbose=self.verbose,
+        )
+
+        self.questions_generator = Agent(
+            role='Questions Generator',
+            goal='Generate hard-hitting questions that challenge the investment thesis',
+            backstory='You are a devil\'s advocate. You generate 8-12 critical questions across Market, Product, Traction, and Team categories that must be answered before any investment decision.',
+            llm=llm_default,
+            verbose=self.verbose,
+        )
+
+        # dd-agents Executive Synthesis (GP Agent)
+        self.synthesizer = Agent(
+            role='Synthesizer (GP)',
+            goal='Read all analyst reports, debate transcript, and critical questions. Produce final investment verdict.',
+            backstory='You are the General Partner making the final decision. You synthesize all perspectives, weigh evidence, and produce a clear Pass/Invest recommendation with rationale.',
+            llm=llm_best,
             verbose=self.verbose,
         )
 

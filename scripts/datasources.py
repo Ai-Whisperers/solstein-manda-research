@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 #!/usr/bin/env python3
 """
 Multi-source company data enrichment layer v2.
@@ -80,20 +82,23 @@ def fetch(url, timeout=15):
 # --- Source 1: Wikipedia ---
 
 def wikipedia_summary(company_name):
-    name = company_name.split('(')[0].strip().replace(' ', '_')
-    data = fetch(f'https://en.wikipedia.org/api/rest_v1/page/summary/{name}')
-    if data:
-        try:
-            j = json.loads(data)
-            if j.get('extract') and 'may refer to' not in j.get('extract', ''):
-                return {
-                    'title': j.get('title', ''),
-                    'description': j.get('description', ''),
-                    'extract': j.get('extract', '')[:800],
-                    'url': f"https://en.wikipedia.org/wiki/{name}",
-                }
-        except json.JSONDecodeError:
-            pass
+    base = company_name.split('(')[0].strip().replace(' ', '_')
+    # Try with '(company)' suffix first for disambiguation
+    candidates = [f"{base}_(company)", base]
+    for name in candidates:
+        data = fetch(f'https://en.wikipedia.org/api/rest_v1/page/summary/{name}')
+        if data:
+            try:
+                j = json.loads(data)
+                if j.get('extract') and 'may refer to' not in j.get('extract', ''):
+                    return {
+                        'title': j.get('title', ''),
+                        'description': j.get('description', ''),
+                        'extract': j.get('extract', '')[:800],
+                        'url': f"https://en.wikipedia.org/wiki/{name}",
+                    }
+            except (json.JSONDecodeError, KeyError):
+                continue
     return None
 
 
@@ -251,7 +256,7 @@ def detect_hosting(domain):
         elif ip.startswith('13.'):
             result['hosting'] = 'AWS (us-east)'
     except Exception:
-        pass
+            pass
     return result
 
 
@@ -391,7 +396,33 @@ def enrich_company(company_name, domain=None):
                 result['gleif'] = free['gleif']
                 result['sources_found'].append('gleif')
     except Exception:
-        pass
+            pass
+
+    # AbstractAPI company enrichment (employee count, revenue, LinkedIn URL)
+    try:
+        api_key = os.environ.get('ABSTRACT_API_KEY')
+        if api_key and scan.get('domain'):
+            import urllib.parse
+            domain_clean = scan['domain'].replace('https://', '').replace('http://', '').split('/')[0]
+            url = f'https://companyenrichment.abstractapi.com/v2/?api_key={api_key}&domain={domain_clean}'
+            abs_data = fetch(url, timeout=10)
+            if abs_data:
+                j = json.loads(abs_data)
+                result['abstractapi'] = {
+                    'employee_count': j.get('employee_count'),
+                    'employee_range': j.get('employee_range'),
+                    'annual_revenue': j.get('annual_revenue'),
+                    'revenue_range': j.get('revenue_range'),
+                    'industry': j.get('industry'),
+                    'linkedin_url': j.get('linkedin_url'),
+                    'type': j.get('type'),
+                    'ticker': j.get('ticker'),
+                    'founded_year': j.get('year_founded'),
+                    'technologies': j.get('technologies', []),
+                }
+                result['sources_found'].append('abstractapi')
+    except Exception:
+            pass
 
     # New sources (Companies House, SIRENE, Financial Datasets)
     try:
@@ -408,7 +439,7 @@ def enrich_company(company_name, domain=None):
                 result['financial_datasets'] = new['financial_datasets']
                 result['sources_found'].append('financial_datasets')
     except Exception:
-        pass
+            pass
 
     # Source triangulation
     emp_sources = {}

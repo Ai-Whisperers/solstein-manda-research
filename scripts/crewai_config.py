@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 #!/usr/bin/env python3
 """
 CrewAI Configuration — sets up model providers for research agents.
@@ -25,7 +27,7 @@ def get_github_token():
         if result.returncode == 0 and result.stdout.strip():
             return result.stdout.strip()
     except Exception:
-        pass
+            pass
     return None
 
 

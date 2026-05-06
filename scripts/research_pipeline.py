@@ -65,6 +65,7 @@ def run_pipeline(company_name, domain=None):
         json.dump(scan, f, indent=2)
     print(f"  Method: {scan['method']}, reachable: {scan['website_reachable']}")
     print(f"  Tech: {', '.join(scan['tech_stack'][:6])}")
+    import time; time.sleep(2)  # Let browser fully close before enrichment
 
     # Step 2: Enrichment
     print(f"\n[2/5] Multi-source enrichment...")

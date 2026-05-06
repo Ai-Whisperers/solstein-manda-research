@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 #!/usr/bin/env python3
 """
 Quick-scan v2: Browser-powered first-pass data gathering for any company.
@@ -20,8 +22,8 @@ _HAS_PLAYWRIGHT = False
 try:
     from playwright.sync_api import sync_playwright
     _HAS_PLAYWRIGHT = True
-except ImportError:
-    pass
+except Exception:
+            pass
 
 
 def extract_domain(name):

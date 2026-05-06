@@ -12,8 +12,17 @@ Usage:
     browser.close()
 """
 
-import re, json, time
-from playwright.sync_api import sync_playwright, TimeoutError as PwTimeout
+import re, json, time, logging
+logger = logging.getLogger(__name__)
+
+try:
+    import cloakbrowser
+    _has_cloak = True
+except ImportError:
+    _has_cloak = False
+
+if not _has_cloak:
+    from playwright.sync_api import sync_playwright, TimeoutError as PwTimeout
 
 
 class CompanyBrowser:
@@ -28,21 +37,29 @@ class CompanyBrowser:
     _ua_index = 0
 
     def __init__(self, headless=True, timeout=30000):
-        self.play = sync_playwright().start()
-        self.browser = self.play.chromium.launch(
-            headless=headless,
-            args=['--disable-blink-features=AutomationControlled',
-                  '--no-sandbox', '--disable-dev-shm-usage']
-        )
-        ua = CompanyBrowser._ua_pool[CompanyBrowser._ua_index % len(CompanyBrowser._ua_pool)]
-        CompanyBrowser._ua_index += 1
-        self.context = self.browser.new_context(
-            user_agent=ua,
-            viewport={'width': 1280, 'height': 800},
-            locale='en-US',
-            extra_http_headers={'Accept-Language': 'en-US,en;q=0.9'},
-        )
-        self.page = self.context.new_page()
+        self._cloak = _has_cloak
+        if _has_cloak:
+            logger.info("Using CloakBrowser (stealth mode)")
+            import cloakbrowser
+            self.browser = cloakbrowser.launch(headless=headless)
+            self.context = self.browser.new_context()
+            self.page = self.context.new_page()
+        else:
+            self.play = sync_playwright().start()
+            self.browser = self.play.chromium.launch(
+                headless=headless,
+                args=['--disable-blink-features=AutomationControlled',
+                      '--no-sandbox', '--disable-dev-shm-usage']
+            )
+            ua = CompanyBrowser._ua_pool[CompanyBrowser._ua_index % len(CompanyBrowser._ua_pool)]
+            CompanyBrowser._ua_index += 1
+            self.context = self.browser.new_context(
+                user_agent=ua,
+                viewport={'width': 1280, 'height': 800},
+                locale='en-US',
+                extra_http_headers={'Accept-Language': 'en-US,en;q=0.9'},
+            )
+            self.page = self.context.new_page()
         self.timeout = timeout
 
     def _dismiss_cookies(self):

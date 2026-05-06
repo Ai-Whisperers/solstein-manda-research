@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 #!/usr/bin/env python3
 """
 MCP server integrations for company data enrichment.
@@ -159,7 +161,7 @@ def enrich_mcp(company_name, domain=None):
             result['openregistry'] = or_data
             result['sources_found'].append('openregistry')
     except Exception:
-        pass
+            pass
 
     # Try CompanyScope (if APIFY_API_TOKEN set)
     if os.environ.get('APIFY_API_TOKEN'):
