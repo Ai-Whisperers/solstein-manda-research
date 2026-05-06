@@ -1,0 +1,492 @@
+{
+  "total_businesses": 7463,
+  "categories": {
+    "Peluqueria": {
+      "count": 2393,
+      "essential_features": [
+        "Service catalog (cuts, coloring, treatments, styling)",
+        "Pricing per service",
+        "Online booking with date/time selection",
+        "WhatsApp integration for confirmations",
+        "Before/after photo gallery",
+        "Staff profiles",
+        "Appointment reminders",
+        "Client loyalty program"
+      ],
+      "optional_features": [
+        "Online store (hair products)",
+        "Product recommendations post-service",
+        "Gift cards",
+        "Recurring appointments",
+        "SMS notifications",
+        "Multi-location support"
+      ],
+      "typical_services": [
+        "Corte de cabello (basic trim)",
+        "Corte y STYLE",
+        "Tinte / Coloraci\u00f3n",
+        "Mechas / Balayage",
+        "Alisado / Keratina",
+        "Tratamientos capilares",
+        "Peinado / Styling",
+        "Corte infantil"
+      ],
+      "average_price_range": "Gs. 80,000 - 350,000",
+      "research_needed": [
+        "Local pricing standards",
+        "Popular service combinations",
+        "Average appointment duration",
+        "Peak booking times",
+        "Popular hair trends in Paraguay"
+      ],
+      "website_sections": [
+        "Home (hero image, CTA)",
+        "Servicios (catalog with prices)",
+        "Galer\u00eda (portfolio)",
+        "Nuestro equipo (staff)",
+        "Reservas (booking widget)",
+        "Contacto (map, phone, WhatsApp)"
+      ],
+      "vete_tier": "Profesional",
+      "pitch_phrase": "Tus clientes pueden reservar su turno online sin que tengas que responder WhatsApp todo el d\u00eda"
+    },
+    "Salon de Belleza": {
+      "count": 98,
+      "essential_features": [
+        "Multi-category service catalog",
+        "Hair services subsection",
+        "Nail services subsection",
+        "Makeup services",
+        "Online booking with service selection",
+        "WhatsApp integration",
+        "Photo gallery (work showcase)",
+        "Product retail section",
+        "Appointment reminders",
+        "Loyalty program"
+      ],
+      "optional_features": [
+        "E-commerce for products",
+        "Wedding packages",
+        "Gift cards",
+        "Membership/subscription",
+        "Multi-staff scheduling",
+        "Waiting list"
+      ],
+      "typical_services": [
+        "Corte y peinado",
+        "Coloraci\u00f3n completa",
+        "Manicura / Pedicura",
+        "U\u00f1as acr\u00edlicas / Gel",
+        "Maquillaje social",
+        "Maquillaje novias",
+        "Tratamientos faciales",
+        "Spa day packages"
+      ],
+      "average_price_range": "Gs. 100,000 - 500,000+",
+      "research_needed": [
+        "Wedding season peaks",
+        "Package pricing",
+        "Product brands used",
+        "Popular nail styles",
+        "Competition analysis"
+      ],
+      "website_sections": [
+        "Home",
+        "Servicios (expandable categories)",
+        "Galer\u00eda",
+        "Productos (online store)",
+        "Paquetes",
+        "Reservas",
+        "Contacto",
+        "Blog (tips, trends)"
+      ],
+      "vete_tier": "Profesional",
+      "pitch_phrase": "Una plataforma completa para tu sal\u00f3n \u2014 servicios, tienda online y reservas en un solo lugar"
+    },
+    "Barberia": {
+      "count": 39,
+      "essential_features": [
+        "Service menu with wait times",
+        "Quick booking (minimal friction)",
+        "WhatsApp integration",
+        "Before/after photos",
+        "Staff/barber profiles",
+        "Walk-in vs appointment display",
+        "Gift cards",
+        "Social media links prominent"
+      ],
+      "optional_features": [
+        "App for loyalty points",
+        "SMS notifications",
+        "Multi-location",
+        "Beer/wait menu for shop"
+      ],
+      "typical_services": [
+        "Corte cl\u00e1sico",
+        "Corte moderno",
+        "Arreglo de barba",
+        "Corte + Barba",
+        "Afeitado cl\u00e1sico",
+        "Cejas / dise\u00f1o",
+        "Tratamiento facial varonil"
+      ],
+      "average_price_range": "Gs. 50,000 - 150,000",
+      "research_needed": [
+        "Popular styles in Paraguay",
+        "Average service time",
+        "Barber specializations",
+        "Peak hours (evenings, weekends)"
+      ],
+      "website_sections": [
+        "Home (bold, masculine design)",
+        "Servicios con tiempos",
+        "Equipo (barber profiles)",
+        "Galer\u00eda",
+        "Reservas (r\u00e1pido)",
+        "Contacto + Mapa"
+      ],
+      "vete_tier": "Gratis or Profesional",
+      "pitch_phrase": "Reservas en 30 segundos \u2014 tus clientes esperan menos y \u043f\u043e\u043b\u0443\u0447\u0430\u044e\u0442 m\u00e1s"
+    },
+    "Spa/Wellness": {
+      "count": 927,
+      "essential_features": [
+        "Treatment menu with descriptions",
+        "Duration for each treatment",
+        "Pricing",
+        "Online booking with date/time",
+        "Staff/therapist profiles",
+        "Photo gallery (atmosphere)",
+        "Gift cards",
+        "Package deals",
+        "WhatsApp integration",
+        "Appointment reminders"
+      ],
+      "optional_features": [
+        "Online store (products, gift cards)",
+        "Membership subscriptions",
+        "Couple/duo treatments",
+        "Hotel partnerships",
+        "Multi-location",
+        "Patient intake forms"
+      ],
+      "typical_services": [
+        "Masaje relajante (60/90 min)",
+        "Masaje descontracturante",
+        "Masaje reducteur",
+        "Tratamiento facial",
+        "Tratamiento corporal",
+        "Spa day (paquete completo)",
+        "Bambuterapia",
+        "Aromaterapia",
+        "Sauna / Ba\u00f1o turcos"
+      ],
+      "average_price_range": "Gs. 150,000 - 800,000+",
+      "research_needed": [
+        "Popular treatments in Paraguay",
+        "Spa package combinations",
+        "Hotel partnerships",
+        "Pricing for premium vs mid-range",
+        "Seasonal promotions"
+      ],
+      "website_sections": [
+        "Home (calming design)",
+        "Tratamientos (catalog)",
+        "Paquetes (combo deals)",
+        "Galer\u00eda (ambiente)",
+        "Equipo (therapists)",
+        "Regalos (gift cards)",
+        "Reservas",
+        "Contacto",
+        "Blog (wellness tips)"
+      ],
+      "vete_tier": "Profesional",
+      "pitch_phrase": "Tus clientes merecen relajarse \u2014 Permite que reserven su momento de relax online"
+    },
+    "Gimnasio/Fitness": {
+      "count": 1087,
+      "essential_features": [
+        "Class schedule (real-time)",
+        "Class booking system",
+        "Personal training booking",
+        "Membership tiers display",
+        "Trainer profiles",
+        "Amenities showcase",
+        "Photo/video gallery",
+        "Trial pass/offer",
+        "WhatsApp for inquiries",
+        "Location + parking info"
+      ],
+      "optional_features": [
+        "Member portal (attendance)",
+        "Online payments",
+        "Class waitlist",
+        "Nutrition planning",
+        "Merchandise store",
+        "Events/workshops",
+        "App integration"
+      ],
+      "typical_services": [
+        "Membres\u00eda mensual",
+        "Membres\u00eda anual",
+        "Clase suelta",
+        "Personal training",
+        "Clases grupales (yoga, crossfit, spinning)",
+        "Entrenamiento funcional",
+        "Plan nutricional"
+      ],
+      "average_price_range": "Gs. 150,000 - 400,000/mes",
+      "research_needed": [
+        "Class schedule formats",
+        "Membership pricing tiers",
+        "Popular class types in Paraguay",
+        "Peak hours",
+        "Competitor pricing"
+      ],
+      "website_sections": [
+        "Home (energetic design)",
+        "Planes (memberships)",
+        "Horario (class schedule)",
+        "Clases (types)",
+        "Entrenadores (trainers)",
+        "Prueba gratis (lead magnet)",
+        "Galer\u00eda",
+        "Contacto + Mapa",
+        "Blog (fitness tips)"
+      ],
+      "vete_tier": "Profesional",
+      "pitch_phrase": "Gesti\u00f3n de clases y membres\u00edas en una sola plataforma \u2014 Tus socios reservan y pagan online"
+    },
+    "U\u00f1as/Nails": {
+      "count": 488,
+      "essential_features": [
+        "Service catalog (specific nail services)",
+        "Nail art portfolio gallery",
+        "Online booking",
+        "WhatsApp integration",
+        "Design options showcase",
+        "Price list",
+        "Appointment duration",
+        "Reminders"
+      ],
+      "optional_features": [
+        "Nail art custom request form",
+        "Online store (nail products)",
+        "Loyalty program (10th free)",
+        "Membership"
+      ],
+      "typical_services": [
+        "Manicura b\u00e1sica",
+        "Manicura esculpida",
+        "U\u00f1as gel",
+        "U\u00f1as acr\u00edlicas",
+        "Pedicura SPA",
+        "Nail art / decorado",
+        "U\u00f1as posteo",
+        "Relleno"
+      ],
+      "average_price_range": "Gs. 60,000 - 250,000",
+      "research_needed": [
+        "Popular nail designs in Paraguay",
+        "Average appointment time",
+        "Pricing by nail type",
+        "Popular colors/trends"
+      ],
+      "website_sections": [
+        "Home",
+        "Servicios (catalog with prices)",
+        "Galer\u00eda (nail art portfolio)",
+        "Reservas",
+        "Contacto"
+      ],
+      "vete_tier": "Gratis or Profesional",
+      "pitch_phrase": "Muestrame tu arte en u\u00f1as \u2014 Tu portfolio online atrae m\u00e1s clientes"
+    },
+    "Tatuajes/Piercing": {
+      "count": 272,
+      "essential_features": [
+        "Portfolio/gallery (critical)",
+        "Artist profiles with styles",
+        "Consultation booking",
+        "Aftercare instructions",
+        "Price guide (by size/type)",
+        "Age verification notice",
+        "Consent forms",
+        "WhatsApp for design inquiries",
+        "Location + hours"
+      ],
+      "optional_features": [
+        "Custom request form",
+        "Design submission system",
+        "Gift cards",
+        "Healing product store",
+        "Events (flash days)",
+        "FAQ section"
+      ],
+      "typical_services": [
+        "Consultaci\u00f3n de dise\u00f1o",
+        "Tattoo peque\u00f1o",
+        "Tattoo mediano",
+        "Tattoo grande / cobertura",
+        "Piercing",
+        "Retoque",
+        "Remoci\u00f3n (l\u00e1ser)"
+      ],
+      "average_price_range": "Gs. 100,000 - 2,000,000+",
+      "research_needed": [
+        "Average tattoo prices by size",
+        "Popular styles in Paraguay",
+        "Artist specializations",
+        "Healing process info",
+        "Age requirements"
+      ],
+      "website_sections": [
+        "Home (portfolio first)",
+        "Galer\u00eda (work showcase)",
+        "Artistas (profiles)",
+        "Informaci\u00f3n (prices, FAQ)",
+        "Consulta (booking)",
+        "Aftercare (info)",
+        "Contacto"
+      ],
+      "vete_tier": "Profesional",
+      "pitch_phrase": "Tu portafolio es tu marketing \u2014 Un sitio profesional muestra tu trabajo y atrae clientes"
+    },
+    "Estetica/Facial": {
+      "count": 137,
+      "essential_features": [
+        "Treatment catalog with descriptions",
+        "Before/after galleries",
+        "Professional credentials display",
+        "Online booking",
+        "Consultation scheduling",
+        "WhatsApp integration",
+        "Package deals",
+        "Patient forms"
+      ],
+      "optional_features": [
+        "Online store (skincare products)",
+        "Membership/subscriptions",
+        "Financing options",
+        "Multi-location",
+        "Events/workshops"
+      ],
+      "typical_services": [
+        "Limpieza facial",
+        "Tratamiento anti-age",
+        "Botox",
+        "\u00c1cido hialur\u00f3nico",
+        "Radiofrecuencia",
+        "Cavitaci\u00f3n",
+        "Criolip\u00f3lisis",
+        "Tratamiento corporal"
+      ],
+      "average_price_range": "Gs. 200,000 - 2,000,000+",
+      "research_needed": [
+        "Popular treatments in Paraguay",
+        "Credential requirements",
+        "Pricing by treatment area",
+        "Popular skincare brands",
+        "Competitor pricing"
+      ],
+      "website_sections": [
+        "Home (professional, clean)",
+        "Tratamientos (catalog)",
+        "Antes/despu\u00e9s (gallery)",
+        "Equipo (credentials)",
+        "Consulta (booking)",
+        "Productos (store)",
+        "Contacto",
+        "Blog (skincare tips)"
+      ],
+      "vete_tier": "Profesional",
+      "pitch_phrase": "Profesionalismo vende \u2014 Tu presencia online refleja la calidad de tus tratamientos"
+    },
+    "Maquillaje": {
+      "count": 130,
+      "essential_features": [
+        "Portfolio gallery (makeup looks)",
+        "Service menu (bridal, social, special effects)",
+        "Booking system",
+        "Trial session booking",
+        "Price list",
+        "Testimonials/reviews",
+        "WhatsApp contact",
+        "Service area coverage"
+      ],
+      "optional_features": [
+        "Shop (makeup products)",
+        "Booking for groups (bridal parties)",
+        "Gift cards",
+        "Look booking form"
+      ],
+      "typical_services": [
+        "Maquillaje social (event)",
+        "Maquillaje novias (bridal)",
+        "Maquillaje quincea\u00f1eras",
+        "MaquillajeFX / special effects",
+        "Maquillaje profesional (course)",
+        "Maquillaje de prueba (trial)"
+      ],
+      "average_price_range": "Gs. 100,000 - 500,000+",
+      "research_needed": [
+        "Bridal makeup pricing",
+        "Popular makeup styles",
+        "Seasonal peaks (wedding season)",
+        "Travel vs studio pricing"
+      ],
+      "website_sections": [
+        "Home (portfolio first)",
+        "Galer\u00eda (makeup looks)",
+        "Servicios (with prices)",
+        "Trial (booking)",
+        "Testimonios",
+        "Contacto + WhatsApp"
+      ],
+      "vete_tier": "Profesional",
+      "pitch_phrase": "Tu talento merece ser visto \u2014 Portafolio online que muestra tu arte attracting clientes"
+    },
+    "Depilacion": {
+      "count": 9,
+      "essential_features": [
+        "Service catalog",
+        "Treatment areas pricing",
+        "Package deals (sessions)",
+        "Online booking",
+        "WhatsApp integration",
+        "Information about methods",
+        "FAQ section",
+        "Location + hours"
+      ],
+      "optional_features": [
+        "Online store (products)",
+        "Membership",
+        "Referral program"
+      ],
+      "typical_services": [
+        "Depilaci\u00f3n con cera",
+        "Depilaci\u00f3n laser",
+        "Depilaci\u00f3n facial",
+        "Depilaci\u00f3n corporal",
+        "Paquete sesiones"
+      ],
+      "average_price_range": "Gs. 80,000 - 500,000+",
+      "research_needed": [
+        "Laser vs wax pricing",
+        "Popular areas treated",
+        "Package deal structures",
+        "Results timeframe"
+      ],
+      "website_sections": [
+        "Home",
+        "Tratamientos",
+        "Paquetes",
+        "Informaci\u00f3n (FAQ)",
+        "Reservas",
+        "Contacto"
+      ],
+      "vete_tier": "Profesional",
+      "pitch_phrase": "\u544a\u522b\u591a\u4f59\u7684\u6bdb\u53d1 \u2014 Tu cliente puede reservar su sesi\u00f3n de depilaci\u00f3n online"
+    }
+  }
+}

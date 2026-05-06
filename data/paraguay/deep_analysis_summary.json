@@ -1,0 +1,1493 @@
+{
+  "total_businesses": 7463,
+  "categories": {
+    "Salon de Belleza": 1210,
+    "Peluqueria": 1293,
+    "U\u00f1as/Nails": 595,
+    "Spa/Wellness": 864,
+    "Otros": 963,
+    "Barberia": 778,
+    "Depilacion": 20,
+    "Estetica/Facial": 169,
+    "Tatuajes/Piercing": 275,
+    "Pesta\u00f1as/Cejas": 49,
+    "Gimnasio/Fitness": 1073,
+    "Maquillaje": 174
+  },
+  "priority_a_count": 3960,
+  "priority_b_count": 2836,
+  "with_phone": 6079,
+  "no_website": 5602,
+  "city_analysis": {
+    "Asunci\u00f3n": {
+      "total": 492,
+      "no_web": 247,
+      "priority_a": 348,
+      "with_phone": 457,
+      "reviews": 46320
+    },
+    "Fernando de la Mora": {
+      "total": 277,
+      "no_web": 193,
+      "priority_a": 206,
+      "with_phone": 250,
+      "reviews": 15340
+    },
+    "San Lorenzo": {
+      "total": 278,
+      "no_web": 183,
+      "priority_a": 182,
+      "with_phone": 241,
+      "reviews": 20143
+    },
+    "Mariano Roque Alonso": {
+      "total": 191,
+      "no_web": 150,
+      "priority_a": 117,
+      "with_phone": 160,
+      "reviews": 2876
+    },
+    "Luque": {
+      "total": 247,
+      "no_web": 174,
+      "priority_a": 156,
+      "with_phone": 212,
+      "reviews": 6387
+    },
+    "Lambar\u00e9": {
+      "total": 237,
+      "no_web": 172,
+      "priority_a": 168,
+      "with_phone": 214,
+      "reviews": 6775
+    },
+    "Itaugua": {
+      "total": 63,
+      "no_web": 51,
+      "priority_a": 28,
+      "with_phone": 43,
+      "reviews": 1245
+    },
+    "282": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 85
+    },
+    "Campos": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 72
+    },
+    "\u00d1emby": {
+      "total": 229,
+      "no_web": 163,
+      "priority_a": 134,
+      "with_phone": 198,
+      "reviews": 3912
+    },
+    "Capiat\u00e1": {
+      "total": 227,
+      "no_web": 161,
+      "priority_a": 134,
+      "with_phone": 188,
+      "reviews": 3407
+    },
+    "ycua mandiyu": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 18
+    },
+    "Kapi'at\u00e3": {
+      "total": 28,
+      "no_web": 19,
+      "priority_a": 19,
+      "with_phone": 25,
+      "reviews": 609
+    },
+    "Zona Norte": {
+      "total": 3,
+      "no_web": 2,
+      "priority_a": 2,
+      "with_phone": 3,
+      "reviews": 41
+    },
+    "L\u00fake": {
+      "total": 23,
+      "no_web": 12,
+      "priority_a": 10,
+      "with_phone": 22,
+      "reviews": 335
+    },
+    "cortada": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 2
+    },
+    "Julian Augusto Sald\u00edvar": {
+      "total": 6,
+      "no_web": 4,
+      "priority_a": 2,
+      "with_phone": 4,
+      "reviews": 33
+    },
+    "Lambare": {
+      "total": 8,
+      "no_web": 4,
+      "priority_a": 4,
+      "with_phone": 8,
+      "reviews": 294
+    },
+    "Piribebuy": {
+      "total": 100,
+      "no_web": 81,
+      "priority_a": 39,
+      "with_phone": 75,
+      "reviews": 4646
+    },
+    "Villa Elisa": {
+      "total": 190,
+      "no_web": 140,
+      "priority_a": 110,
+      "with_phone": 163,
+      "reviews": 3571
+    },
+    "zona norte": {
+      "total": 2,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 2,
+      "reviews": 33
+    },
+    "Limpio": {
+      "total": 178,
+      "no_web": 142,
+      "priority_a": 100,
+      "with_phone": 143,
+      "reviews": 3614
+    },
+    "ydoyaga": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 314
+    },
+    "Ypan\u00e9": {
+      "total": 110,
+      "no_web": 90,
+      "priority_a": 51,
+      "with_phone": 89,
+      "reviews": 1456
+    },
+    "Paso de Patria": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 1
+    },
+    "San Antonio": {
+      "total": 15,
+      "no_web": 10,
+      "priority_a": 7,
+      "with_phone": 13,
+      "reviews": 421
+    },
+    "Thompson": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 4
+    },
+    "Laque": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 71
+    },
+    "Itaugu\u00e1": {
+      "total": 136,
+      "no_web": 111,
+      "priority_a": 68,
+      "with_phone": 111,
+      "reviews": 6850
+    },
+    "Ciudad del Este": {
+      "total": 348,
+      "no_web": 218,
+      "priority_a": 196,
+      "with_phone": 307,
+      "reviews": 10933
+    },
+    "San Bernardino": {
+      "total": 73,
+      "no_web": 56,
+      "priority_a": 37,
+      "with_phone": 55,
+      "reviews": 5276
+    },
+    "Hernandarias": {
+      "total": 207,
+      "no_web": 159,
+      "priority_a": 96,
+      "with_phone": 169,
+      "reviews": 4298
+    },
+    "Roque Alonso": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 1
+    },
+    "Mariano R Alonso": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Villa": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 3
+    },
+    "VILLA": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 5
+    },
+    "Ytaygua": {
+      "total": 4,
+      "no_web": 4,
+      "priority_a": 2,
+      "with_phone": 3,
+      "reviews": 49
+    },
+    "Aregu\u00e1": {
+      "total": 166,
+      "no_web": 138,
+      "priority_a": 79,
+      "with_phone": 136,
+      "reviews": 6593
+    },
+    "Costa Lago": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 0
+    },
+    "Unknown": {
+      "total": 68,
+      "no_web": 38,
+      "priority_a": 35,
+      "with_phone": 57,
+      "reviews": 3240
+    },
+    "294": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Ypacara\u00ed": {
+      "total": 12,
+      "no_web": 11,
+      "priority_a": 4,
+      "with_phone": 7,
+      "reviews": 69
+    },
+    "It\u00e1": {
+      "total": 133,
+      "no_web": 113,
+      "priority_a": 69,
+      "with_phone": 102,
+      "reviews": 6477
+    },
+    "Ypane": {
+      "total": 15,
+      "no_web": 14,
+      "priority_a": 6,
+      "with_phone": 15,
+      "reviews": 73
+    },
+    "Guarambare": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 5
+    },
+    "Guarambar\u00e9": {
+      "total": 9,
+      "no_web": 8,
+      "priority_a": 8,
+      "with_phone": 7,
+      "reviews": 161
+    },
+    "Villeta": {
+      "total": 4,
+      "no_web": 3,
+      "priority_a": 2,
+      "with_phone": 3,
+      "reviews": 20
+    },
+    "Presidente Franco": {
+      "total": 183,
+      "no_web": 156,
+      "priority_a": 88,
+      "with_phone": 151,
+      "reviews": 2017
+    },
+    "Santa Rita": {
+      "total": 132,
+      "no_web": 92,
+      "priority_a": 50,
+      "with_phone": 113,
+      "reviews": 3038
+    },
+    "Pedro Juan Caballero": {
+      "total": 208,
+      "no_web": 148,
+      "priority_a": 81,
+      "with_phone": 170,
+      "reviews": 6501
+    },
+    "Encarnaci\u00f3n": {
+      "total": 202,
+      "no_web": 132,
+      "priority_a": 115,
+      "with_phone": 188,
+      "reviews": 5079
+    },
+    "Caaguaz\u00fa": {
+      "total": 180,
+      "no_web": 157,
+      "priority_a": 94,
+      "with_phone": 149,
+      "reviews": 1845
+    },
+    "Cerrito": {
+      "total": 4,
+      "no_web": 3,
+      "priority_a": 3,
+      "with_phone": 2,
+      "reviews": 42
+    },
+    "Fernando Zona Norte": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 46
+    },
+    "Ciudad del Est": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 25
+    },
+    "Del este": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 2,
+      "reviews": 4
+    },
+    "Cuidad del Este": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 2
+    },
+    "Loja": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 17
+    },
+    "Este": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Hernandaria": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 8
+    },
+    "Minga Guazu": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 2
+    },
+    "Minga Guaz\u00fa": {
+      "total": 133,
+      "no_web": 118,
+      "priority_a": 63,
+      "with_phone": 103,
+      "reviews": 707
+    },
+    "Minga": {
+      "total": 3,
+      "no_web": 2,
+      "priority_a": 0,
+      "with_phone": 2,
+      "reviews": 5
+    },
+    "varios": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 0
+    },
+    "Minga Guasu": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 5
+    },
+    "Franco": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 37
+    },
+    "Padre franco": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Puerto Iguaz\u00fa": {
+      "total": 104,
+      "no_web": 61,
+      "priority_a": 64,
+      "with_phone": 91,
+      "reviews": 107571
+    },
+    "Encarnacion": {
+      "total": 29,
+      "no_web": 25,
+      "priority_a": 17,
+      "with_phone": 22,
+      "reviews": 471
+    },
+    "07": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 1
+    },
+    "San Juan del Paran\u00e1": {
+      "total": 3,
+      "no_web": 2,
+      "priority_a": 2,
+      "with_phone": 3,
+      "reviews": 12
+    },
+    "Posadas": {
+      "total": 28,
+      "no_web": 10,
+      "priority_a": 14,
+      "with_phone": 27,
+      "reviews": 1158
+    },
+    "c": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 42
+    },
+    "Coronel Oviedo": {
+      "total": 167,
+      "no_web": 148,
+      "priority_a": 94,
+      "with_phone": 133,
+      "reviews": 2209
+    },
+    "Coronel": {
+      "total": 6,
+      "no_web": 5,
+      "priority_a": 4,
+      "with_phone": 6,
+      "reviews": 114
+    },
+    "Villarrica": {
+      "total": 171,
+      "no_web": 137,
+      "priority_a": 80,
+      "with_phone": 135,
+      "reviews": 3214
+    },
+    "000": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 1
+    },
+    "Ponta Por\u00e3": {
+      "total": 7,
+      "no_web": 6,
+      "priority_a": 4,
+      "with_phone": 6,
+      "reviews": 208
+    },
+    "Caballero": {
+      "total": 6,
+      "no_web": 1,
+      "priority_a": 2,
+      "with_phone": 6,
+      "reviews": 1526
+    },
+    "carumbey": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Doctor Juan Eulogio Estigarribia": {
+      "total": 95,
+      "no_web": 79,
+      "priority_a": 38,
+      "with_phone": 68,
+      "reviews": 6951
+    },
+    "Concepci\u00f3n": {
+      "total": 143,
+      "no_web": 116,
+      "priority_a": 58,
+      "with_phone": 102,
+      "reviews": 1929
+    },
+    "Pilar": {
+      "total": 155,
+      "no_web": 126,
+      "priority_a": 77,
+      "with_phone": 128,
+      "reviews": 3844
+    },
+    "Carmen del Paran\u00e1": {
+      "total": 3,
+      "no_web": 3,
+      "priority_a": 1,
+      "with_phone": 2,
+      "reviews": 29
+    },
+    "Fatima": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 1751
+    },
+    "Manuel Alberti": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 2359
+    },
+    "Villa Rosa": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 106
+    },
+    "Caacup\u00e9": {
+      "total": 142,
+      "no_web": 119,
+      "priority_a": 66,
+      "with_phone": 106,
+      "reviews": 5602
+    },
+    "Ka'akupe": {
+      "total": 6,
+      "no_web": 5,
+      "priority_a": 4,
+      "with_phone": 4,
+      "reviews": 34
+    },
+    "concepcion": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Loma Guazu": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 6
+    },
+    "San Ignacio Guaz\u00fa": {
+      "total": 94,
+      "no_web": 83,
+      "priority_a": 42,
+      "with_phone": 72,
+      "reviews": 1055
+    },
+    "San ignacio": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 0,
+      "reviews": 12
+    },
+    "Abay": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 2
+    },
+    "Santa Maria": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 0
+    },
+    "Hohenau": {
+      "total": 83,
+      "no_web": 63,
+      "priority_a": 34,
+      "with_phone": 63,
+      "reviews": 1577
+    },
+    "Santa Rosa": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "San Ignacio": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 3
+    },
+    "Paraguar\u00ed": {
+      "total": 81,
+      "no_web": 75,
+      "priority_a": 36,
+      "with_phone": 47,
+      "reviews": 2634
+    },
+    "Ybycu\u00ed": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 2,
+      "with_phone": 2,
+      "reviews": 2
+    },
+    "Yaguar\u00f3n": {
+      "total": 78,
+      "no_web": 73,
+      "priority_a": 28,
+      "with_phone": 44,
+      "reviews": 883
+    },
+    "Carapegu\u00e1": {
+      "total": 14,
+      "no_web": 12,
+      "priority_a": 7,
+      "with_phone": 12,
+      "reviews": 113
+    },
+    "\u00d1uati Guasu": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 47
+    },
+    "Calle": {
+      "total": 3,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 61
+    },
+    "Pirayu": {
+      "total": 3,
+      "no_web": 3,
+      "priority_a": 3,
+      "with_phone": 2,
+      "reviews": 25
+    },
+    "Chololo": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 1288
+    },
+    "Cerro Vera": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 258
+    },
+    "Eusebio Ayala": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 2,
+      "with_phone": 2,
+      "reviews": 16
+    },
+    "Itacurub\u00ed de la Cordillera": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 2,
+      "reviews": 1
+    },
+    "Acahay": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 7
+    },
+    "Valenzuela": {
+      "total": 2,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 2,
+      "reviews": 9
+    },
+    "Chololo Guasu": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 2,
+      "reviews": 6
+    },
+    "San Estanislao": {
+      "total": 104,
+      "no_web": 86,
+      "priority_a": 45,
+      "with_phone": 78,
+      "reviews": 713
+    },
+    "Villa Hayes": {
+      "total": 107,
+      "no_web": 99,
+      "priority_a": 38,
+      "with_phone": 72,
+      "reviews": 820
+    },
+    "Benjam\u00edn Aceval": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Iturbe": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 71
+    },
+    "MJR7+R93Aregu\u00e1": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 4
+    },
+    "Atyr\u00e1": {
+      "total": 64,
+      "no_web": 52,
+      "priority_a": 28,
+      "with_phone": 39,
+      "reviews": 2407
+    },
+    "Tucangua Cordillera": {
+      "total": 3,
+      "no_web": 3,
+      "priority_a": 2,
+      "with_phone": 2,
+      "reviews": 63
+    },
+    "Almada": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Emboscada": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 2,
+      "reviews": 3
+    },
+    "Nueva Colombia": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Tobati": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Tobat\u00ed": {
+      "total": 3,
+      "no_web": 3,
+      "priority_a": 0,
+      "with_phone": 3,
+      "reviews": 7
+    },
+    "Altos": {
+      "total": 48,
+      "no_web": 45,
+      "priority_a": 22,
+      "with_phone": 33,
+      "reviews": 612
+    },
+    "Gujaibity": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 1
+    },
+    "Ypakarai": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 11
+    },
+    "Hugua Hu": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 1
+    },
+    "G\u00fc\u00edmar": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 121
+    },
+    "Ita Yvu": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Ita Potrero": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 4
+    },
+    "Yaguaron Juru": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 1
+    },
+    "Cerro Porte\u00f1o": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 31
+    },
+    "Yegros": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Cerro Largo": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 15
+    },
+    "Santa": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 7
+    },
+    "J. E. Estigarribia": {
+      "total": 3,
+      "no_web": 3,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 4
+    },
+    "Doctor Eulogio Estigarria": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 41
+    },
+    "Doctor Juan Manuel Frutos": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 14
+    },
+    "Estigarribia": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 1
+    },
+    "Coronel Bogado": {
+      "total": 70,
+      "no_web": 62,
+      "priority_a": 19,
+      "with_phone": 45,
+      "reviews": 304
+    },
+    "Teniente Bogado": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 21
+    },
+    "Alberdi": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 9
+    },
+    "Ayolas": {
+      "total": 80,
+      "no_web": 75,
+      "priority_a": 31,
+      "with_phone": 46,
+      "reviews": 1845
+    },
+    "Obligado": {
+      "total": 68,
+      "no_web": 57,
+      "priority_a": 30,
+      "with_phone": 53,
+      "reviews": 2108
+    },
+    "Pirap\u00f3": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 3
+    },
+    "Bella Vista Sur": {
+      "total": 11,
+      "no_web": 7,
+      "priority_a": 3,
+      "with_phone": 7,
+      "reviews": 3011
+    },
+    "Jard\u00edn America": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Trinidad": {
+      "total": 3,
+      "no_web": 3,
+      "priority_a": 1,
+      "with_phone": 2,
+      "reviews": 6
+    },
+    "Itapua poty": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Pirapo-i": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 0,
+      "reviews": 53
+    },
+    "Caazap\u00e1": {
+      "total": 2,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 2,
+      "reviews": 11
+    },
+    "kreusser": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 16
+    },
+    "Cambyret\u00e1": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 4
+    },
+    "Capit\u00e1n Miranda": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Montevideo": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 10
+    },
+    "Colonia Hohenau Itap\u00faa Paraguay": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 377
+    },
+    "clo": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 2
+    },
+    "Zona Fordi 18": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 1
+    },
+    "Bella Vista": {
+      "total": 20,
+      "no_web": 14,
+      "priority_a": 11,
+      "with_phone": 17,
+      "reviews": 2483
+    },
+    "Bella Vista Norte": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 21
+    },
+    "General Diaz": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 0
+    },
+    "Buenos Aires": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 599
+    },
+    "Providencia": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 351
+    },
+    "Gobernador Roca": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Doctor Juan Le\u00f3n Mallorqu\u00edn": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 10
+    },
+    "Nueva Esperanza": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 7
+    },
+    "Vaquer\u00eda": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 3
+    },
+    "Mar\u00eda Auxiliadora": {
+      "total": 4,
+      "no_web": 3,
+      "priority_a": 2,
+      "with_phone": 4,
+      "reviews": 49
+    },
+    "Francisco Caballero A.": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 3
+    },
+    "Naranjal": {
+      "total": 29,
+      "no_web": 27,
+      "priority_a": 14,
+      "with_phone": 20,
+      "reviews": 293
+    },
+    "Yguaz\u00fa": {
+      "total": 3,
+      "no_web": 3,
+      "priority_a": 2,
+      "with_phone": 3,
+      "reviews": 13
+    },
+    "Los Cedrales": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 2,
+      "with_phone": 2,
+      "reviews": 22
+    },
+    "Wanda": {
+      "total": 7,
+      "no_web": 6,
+      "priority_a": 5,
+      "with_phone": 4,
+      "reviews": 135
+    },
+    "Panam\u00e1": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 5
+    },
+    "Guaynabo": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 21
+    },
+    "Humacao": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 34
+    },
+    "Caguas": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 5
+    },
+    "Bah\u00eda Blanca": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 33
+    },
+    "Santo Domingo": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 0,
+      "reviews": 43
+    },
+    "Las Lajas": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 11
+    },
+    "Medell\u00edn": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 1
+    },
+    "Philadelphia": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 121
+    },
+    "Santa Fe del Paran\u00e1": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "San Alberto": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 10
+    },
+    "Santa Rosa del Monday": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Puerto Iguazu": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 1947
+    },
+    "San Juan Bautista": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 5
+    },
+    "Dami\u00e1n": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 1
+    },
+    "San Cosme y Dami\u00e1n": {
+      "total": 33,
+      "no_web": 22,
+      "priority_a": 12,
+      "with_phone": 22,
+      "reviews": 3209
+    },
+    "alberdi": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 0
+    },
+    "General Higinio Mor\u00ednigo": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 10
+    },
+    "Santiago": {
+      "total": 2,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 1
+    },
+    "Ituzaing\u00f3": {
+      "total": 6,
+      "no_web": 6,
+      "priority_a": 5,
+      "with_phone": 6,
+      "reviews": 82
+    },
+    "General Delgado": {
+      "total": 4,
+      "no_web": 4,
+      "priority_a": 2,
+      "with_phone": 3,
+      "reviews": 16
+    },
+    "Coratei": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 4
+    },
+    "Primero de Marzo": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 3
+    },
+    "San Juan Nepomuceno": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 1,
+      "with_phone": 1,
+      "reviews": 1
+    },
+    "San Cosme": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 0
+    },
+    "Lopez": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "Ap\u00f3stoles": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 0
+    },
+    "San Pedro de Ycuamandyy\u00fa": {
+      "total": 61,
+      "no_web": 54,
+      "priority_a": 17,
+      "with_phone": 36,
+      "reviews": 463
+    },
+    "Santa Rosa del Aguaray": {
+      "total": 2,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 2,
+      "reviews": 1
+    },
+    "Villa del Rosario": {
+      "total": 27,
+      "no_web": 18,
+      "priority_a": 8,
+      "with_phone": 15,
+      "reviews": 1231
+    },
+    "Vallemi": {
+      "total": 1,
+      "no_web": 1,
+      "priority_a": 0,
+      "with_phone": 0,
+      "reviews": 0
+    },
+    "Villa Del Rosario": {
+      "total": 3,
+      "no_web": 2,
+      "priority_a": 2,
+      "with_phone": 2,
+      "reviews": 17
+    },
+    "Itacurub\u00ed del Rosario": {
+      "total": 2,
+      "no_web": 2,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 2
+    },
+    "Rosario": {
+      "total": 9,
+      "no_web": 2,
+      "priority_a": 5,
+      "with_phone": 7,
+      "reviews": 1302
+    },
+    "Puerto Antequera": {
+      "total": 3,
+      "no_web": 3,
+      "priority_a": 1,
+      "with_phone": 2,
+      "reviews": 1
+    },
+    "\u00d1ati'Ury Guasu": {
+      "total": 1,
+      "no_web": 0,
+      "priority_a": 0,
+      "with_phone": 1,
+      "reviews": 1
+    }
+  }
+}
