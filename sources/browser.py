@@ -40,20 +40,26 @@ class CompanyBrowser:
 
     def __init__(self, headless=True, timeout=30000):
         self._cloak = _has_cloak
+        self._headless = headless
+        self.timeout = timeout
         self.browser = None
         self.context = None
         self.page = None
         self.play = None
-        if _has_cloak:
+
+    def _ensure_browser(self):
+        if self.browser is not None:
+            return
+        if self._cloak:
             logger.info("Using CloakBrowser (stealth mode)")
-            self.browser = cloakbrowser.launch(headless=headless)
+            self.browser = cloakbrowser.launch(headless=self._headless)
             self.context = self.browser.new_context()
             self.page = self.context.new_page()
         else:
             logger.info("CloakBrowser not available, using Playwright")
             self.play = sync_playwright().start()
             self.browser = self.play.chromium.launch(
-                headless=headless,
+                headless=self._headless,
                 args=['--disable-blink-features=AutomationControlled',
                       '--no-sandbox', '--disable-dev-shm-usage']
             )
@@ -66,7 +72,6 @@ class CompanyBrowser:
                 extra_http_headers={'Accept-Language': 'en-US,en;q=0.9'},
             )
             self.page = self.context.new_page()
-        self.timeout = timeout
 
     def _dismiss_cookies(self):
         """Try to dismiss common cookie consent popups."""
@@ -94,6 +99,7 @@ class CompanyBrowser:
         return False
 
     def goto(self, url, wait_until='domcontentloaded'):
+        self._ensure_browser()
         try:
             self.page.goto(url, wait_until=wait_until, timeout=self.timeout)
             self.page.wait_for_load_state('networkidle', timeout=10000)

@@ -1,3 +1,5 @@
+import logging
+logger = logging.getLogger(__name__)
 #!/usr/bin/env python3
 """
 Quick-scan v2: Browser-powered first-pass data gathering for any company.
