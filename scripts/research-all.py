@@ -25,11 +25,14 @@ DIMENSIONS = [
 WEIGHTS = [3, 3, 3, 2, 2, 2, 1, 1]
 
 def load_john():
-    with open(JOHN_JSON) as f:
-        data = json.load(f)
+    try:
+        with open(JOHN_JSON) as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}, {}
     result = {}
     folder_map = {}
-    for c in data['companies']:
+    for c in data.get('companies', []):
         name = c['company_name']
         folder = name.lower().replace(' ', '-').replace('/', '-').replace('(', '').replace(')', '')
         folder = folder.replace("'", '').replace('&', 'and').replace('--', '-').strip('-')

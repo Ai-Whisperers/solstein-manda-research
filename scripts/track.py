@@ -12,6 +12,7 @@ Usage:
 
 import json, os, re, sqlite3, sys, csv
 from datetime import datetime
+from core.utils import safe_json_load
 
 BASE = os.path.join(os.path.dirname(__file__), '..')
 DB_PATH = os.path.join(BASE, 'output', 'HORECA', 'experiments.db')
@@ -141,9 +142,10 @@ def _load_john():
     """Load John's reference data."""
     result = {}
     folder_map = {}
-    with open(JOHN_JSON) as f:
-        data = json.load(f)
-    for c in data['companies']:
+    data = safe_json_load(JOHN_JSON, {})
+    if not data:
+        return result, folder_map
+    for c in data.get('companies', []):
         name = c['company_name']
         folder = name.lower().replace(' ', '-').replace('/', '-').replace('(', '').replace(')', '')
         folder = folder.replace("'", '').replace('&', 'and').replace('--', '-').strip('-')

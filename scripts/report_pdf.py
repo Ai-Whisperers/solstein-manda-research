@@ -55,8 +55,11 @@ def load_company_data(company_name):
                 data['scores'][dim] = float(m.group(1))
     
     if os.path.exists(en_path):
-        with open(en_path) as f:
-            en = json.load(f)
+        try:
+            with open(en_path) as f:
+                en = json.load(f)
+        except (json.JSONDecodeError, FileNotFoundError):
+            en = {}
         data['sources'] = en.get('sources_found', [])
         tech = en.get('website', {}).get('tech_stack', [])
         data['tech_stack'] = tech if tech else []

@@ -15,12 +15,15 @@ DIMS = ['Ownership attractiveness', 'Revenue scale fit', 'Geographic fit',
         'Tech stack modernity', 'Customer lock-in', 'Vertical depth',
         'Integration potential', 'Growth trajectory']
 
-with open(JOHN_JSON) as f:
-    data = json.load(f)
+try:
+    with open(JOHN_JSON) as f:
+        data = json.load(f)
+except (FileNotFoundError, json.JSONDecodeError):
+    data = {}
 
 john_map = {}
 folder_map = {}
-for c in data['companies']:
+for c in data.get('companies', []):
     name = c['company_name']
     folder = name.lower().replace(' ', '-').replace('/', '-').replace('(', '').replace(')', '')
     folder = folder.replace("'", '').replace('&', 'and').replace('--', '-').strip('-')

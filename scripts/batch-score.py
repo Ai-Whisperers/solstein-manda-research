@@ -13,8 +13,11 @@ WEIGHTS = {'Ownership attractiveness': 3, 'Revenue scale fit': 3, 'Geographic fi
 DIMS_ALL = list(WEIGHTS.keys())
 
 # John's data
-with open(JOHN_JSON) as f:
-    data = json.load(f)
+try:
+    with open(JOHN_JSON) as f:
+        data = json.load(f)
+except (FileNotFoundError, json.JSONDecodeError):
+    data = {}
 
 completed = set()
 for d in os.listdir(HORECA_DIR):
@@ -28,7 +31,7 @@ def folder_from(name):
     return f
 
 count = 0
-for c in data['companies']:
+for c in data.get('companies', []):
     name = c['company_name']
     folder = folder_from(name)
     if folder in completed:

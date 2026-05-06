@@ -33,12 +33,15 @@ def extract_ownership(text):
     m = re.search(r'Ownership\s*\|\s*(.*?)\s*\|', text)
     return m.group(1).strip() if m else ''
 
-with open(JOHN_JSON) as f:
-    data = json.load(f)
+try:
+    with open(JOHN_JSON) as f:
+        data = json.load(f)
+except (FileNotFoundError, json.JSONDecodeError):
+    data = {}
 
 # Build maps
 john_by_name = {}
-for c in data['companies']:
+for c in data.get('companies', []):
     john_by_name[c['company_name']] = c
 
 count_ch = 0

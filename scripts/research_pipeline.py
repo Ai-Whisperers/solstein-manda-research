@@ -20,9 +20,12 @@ from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'core'))
 
 BASE = os.path.join(os.path.dirname(__file__), '..', '..')
 JOHN_JSON = os.path.join(BASE, 'archive', 'john-original', 'horeca_json', 'horeca_data.json')
+
+from core.utils import safe_json_load
 DIMS = ['Ownership attractiveness', 'Revenue scale fit', 'Geographic fit',
         'Tech stack modernity', 'Customer lock-in', 'Vertical depth',
         'Integration potential', 'Growth trajectory']
@@ -30,11 +33,10 @@ DIMS = ['Ownership attractiveness', 'Revenue scale fit', 'Geographic fit',
 
 def load_john_reference(company_name):
     """Load John's scores for a company if available."""
-    if not os.path.exists(JOHN_JSON):
+    data = safe_json_load(JOHN_JSON)
+    if not data:
         return None
-    with open(JOHN_JSON) as f:
-        data = json.load(f)
-    for c in data['companies']:
+    for c in data.get('companies', []):
         if c['company_name'].lower().strip() == company_name.lower().strip():
             sc = c.get('scorecard')
             if sc and sc.get('composite_score'):

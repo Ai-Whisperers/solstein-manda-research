@@ -27,6 +27,7 @@ from crewai import Agent, Task, Crew, Process, LLM
 from scoring import DIMS, WEIGHTS, WEIGHT_MAP, apply_vetoes
 from crewai_config import get_llm, get_openai_key, get_openrouter_key, LLM_CONFIGS
 from datetime import datetime
+from core.utils import safe_json_load
 
 BASE = os.path.join(os.path.dirname(__file__), '..', '..')
 
@@ -35,10 +36,8 @@ def _get_enriched(company_name):
     """Get existing enriched data if available."""
     folder = company_name.lower().replace(' ', '-')
     ep = os.path.join(BASE, 'output', 'HORECA', folder, 'enriched.json')
-    if os.path.exists(ep):
-        with open(ep) as f:
-            return json.load(f)
-    return {}
+    data = safe_json_load(ep)
+    return data if data else {}
 
 
 def _make_context(company_name, domain, enriched=None):
