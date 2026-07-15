@@ -1,0 +1,82 @@
+{
+  "company": "Nexa Paraguay",
+  "vertical": "Relocation & Residency Services",
+  "analyzed_at": "2026-05-07T13:21:45.323421",
+  "veto_checks": {
+    "pe_owned": false,
+    "vc_backed": false,
+    "us_headquartered": false,
+    "already_acquired": false,
+    "off_market": false
+  },
+  "veto_triggered": false,
+  "dimensions": {
+    "Ownership attractiveness": {
+      "score": 4,
+      "weight": 3,
+      "rationale": "Private service business. No PE/VC — clean cap table, fully acquirable. Owned/operated by ParaguAI team (Ivan). No complex structures or institutional investors.",
+      "risk_factors": []
+    },
+    "Revenue scale fit": {
+      "score": 3,
+      "weight": 3,
+      "rationale": "Programs $2,900-6,900+. Fixed-fee + add-ons (land purchase, 12-month accounting). Boutique scale — below typical PE $5M+ EBITDA threshold, but clear path via volume.",
+      "risk_factors": [
+        "Revenue unverified — no public financials",
+        "Client volume appears limited"
+      ]
+    },
+    "Geographic fit": {
+      "score": 5,
+      "weight": 3,
+      "rationale": "Paraguay-based, Paraguay-focused. Perfect alignment with Ai-Whisperers Paraguay strategy. Strong local govt/bank/notary relationships.",
+      "risk_factors": []
+    },
+    "Tech stack modernity": {
+      "score": 4,
+      "weight": 2,
+      "rationale": "Next.js 16 + Tailwind v4 + React 19 + TS 5. Modern stack. 4-locale i18n. HubSpot/Mailchimp/GA4. 111 responsive images. SEO-optimized. WhatsApp lead capture.",
+      "risk_factors": [
+        "Pages Router (not App Router)",
+        "No headless CMS — content in JSON files"
+      ]
+    },
+    "Customer lock-in": {
+      "score": 3,
+      "weight": 2,
+      "rationale": "8-12 week process creates high switching costs mid-process. Investor Program has 12-month recurring engagement. But low stickiness after engagement completes.",
+      "risk_factors": [
+        "One-time relationship for most clients",
+        "Competitive market"
+      ]
+    },
+    "Vertical depth": {
+      "score": 3,
+      "weight": 2,
+      "rationale": "Narrow but deep: 9 services across 4 programs covering full relocation stack. Benelux specialization edge.",
+      "risk_factors": [
+        "Single-vertical risk",
+        "Limited differentiation from competitors"
+      ]
+    },
+    "Integration potential": {
+      "score": 5,
+      "weight": 1,
+      "rationale": "Already on Ai-Whisperers stack: client-kit, CI/CD, ParaguAI infra. Golden Visa cross-referral, builder landing pages, WhatsApp automation, HubSpot CRM — all directly applicable.",
+      "risk_factors": []
+    },
+    "Growth trajectory": {
+      "score": 4,
+      "weight": 1,
+      "rationale": "Growing Paraguay relocation demand (tax refugees, digital nomads). 200+ families served. Scale via content, paid ads, Benelux partner network, AI lead qualification.",
+      "risk_factors": [
+        "Growth metrics unverified",
+        "Macro-dependent (tax policy, political stability)"
+      ]
+    }
+  },
+  "composite_score": 3.82,
+  "grade": "B",
+  "grade_description": "Viable with noted risks",
+  "readiness_score_100": 76
+}

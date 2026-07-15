@@ -1,0 +1,16 @@
+{
+  "source": "solstein-manda-research",
+  "target": "Nexa Paraguay (Ai-Whisperers client)",
+  "analyzed_at": "2026-05-07T13:20:00-04:00",
+  "vertical": "Relocation & Residency Services",
+  "country": "Paraguay",
+  "live_url": "https://nexa.paragu-ai.com",
+  "primary_domain": "nexaparaguay.com (parked/redirects to Shopify placeholder)",
+  "locales": ["en", "es", "nl", "de"],
+  "status": "Active client — P3 maintenance (green)",
+  "owner": "Ivan — ParaguAI",
+  "team": {
+    "client_success_lead": "Kyrian (remote management/ops)",
+    "account_manager": "Sonia (client liaison)"
+  }
+}
